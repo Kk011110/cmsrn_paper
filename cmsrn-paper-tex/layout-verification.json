@@ -1,0 +1,38 @@
+{
+  "input_zip_sha256": "afa4d750d8d66d9d5a94dc194c3d32c5d90dded97155eea31320b167ee5d2701",
+  "original_main_pages": 30,
+  "outputs": {
+    "main": {
+      "pages": 23,
+      "warnings": [
+        "Underfull \\hbox (badness 1112) in paragraph at lines 22--23"
+      ],
+      "pdf_sha256": "63c5c0bcc287457a74e6165f00b3b4d5517cb240cba8638292f1919fa3e6e885"
+    },
+    "supplementary-scenarios": {
+      "pages": 4,
+      "warnings": [],
+      "pdf_sha256": "c7d16c0ca4c92d442376e32a6586f11beec6dd5d804443260c7b76513ba1672f"
+    }
+  },
+  "unchanged_source_data_files": 10,
+  "table_numbers_unchanged": {
+    "tables/chengdu-inflow.tex": true,
+    "tables/chengdu-outflow.tex": true,
+    "tables/serr-expert-ablation.tex": true,
+    "tables/shanghai-inflow.tex": true,
+    "tables/shanghai-outflow.tex": true
+  },
+  "unchanged_sections": [
+    "01-introduction",
+    "02-related-work",
+    "03-problem-definition",
+    "06-discussion"
+  ],
+  "panel_layout_audits": [
+    "source/architecture/panel-title-layout-audit.json",
+    "source/hyperparameters/figure-audit/compact-numeric-audit.json",
+    "source/scenarios/layout-qa/preservation-check.json"
+  ],
+  "visual_review": "All page contact sheets; detailed checks of model diagram, SERR/BCMS shared page, Table 6 and hyperparameter figures. All panel titles below corresponding panels; no clipping or overlap found."
+}

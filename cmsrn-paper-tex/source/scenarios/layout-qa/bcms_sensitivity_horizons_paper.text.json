@@ -1,0 +1,10 @@
+{
+  "pdf": "D:\\VsCodeProjects\\traffic_volume_model_experiment\\output\\cmsrn_layout_compact_20261028\\CMSRN-LaTeX-layout-refined\\cmsrn-paper-tex\\figures\\scenarios\\bcms_sensitivity_horizons_paper.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 6.8,
+  "text_run_count": 15,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}

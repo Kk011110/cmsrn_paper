@@ -1,0 +1,32 @@
+[
+  {
+    "figure": "chengdu-joint-hyperparameter-paper",
+    "size_mm": [
+      159.99999906751842,
+      106.00000059339735
+    ],
+    "previous_height_mm": 122,
+    "height_reduction_percent": 13.11,
+    "minimum_font_pt": 6.3,
+    "alignment": "PASS",
+    "collision": "PASS",
+    "panel_captions": "All below plot areas; flow names included in bottom captions",
+    "numeric_labels_checked": 40,
+    "sha256": "43657c80832207981d8de4b228174f468c0391734d094f24004c0449acc1890d"
+  },
+  {
+    "figure": "chengdu-flow-hyperparameter-paper",
+    "size_mm": [
+      159.99999906751842,
+      184.00000915527343
+    ],
+    "previous_height_mm": 202,
+    "height_reduction_percent": 8.91,
+    "minimum_font_pt": 6.3,
+    "alignment": "PASS",
+    "collision": "PASS",
+    "panel_captions": "All below plot areas; flow names included in bottom captions",
+    "numeric_labels_checked": 80,
+    "sha256": "03125343cadafa55b78e1fe6ca71bfdc80e72e4692cb4871d72c2e1da97eed21"
+  }
+]

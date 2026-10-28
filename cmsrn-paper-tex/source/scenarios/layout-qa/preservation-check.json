@@ -1,0 +1,75 @@
+{
+  "svg_text_preservation": {
+    "bcms_sensitivity_horizons_all_test_paper": {
+      "equal": true,
+      "before_count": 227,
+      "after_count": 227,
+      "removed": {},
+      "added": {}
+    },
+    "bcms_sensitivity_horizons_paper": {
+      "equal": true,
+      "before_count": 227,
+      "after_count": 227,
+      "removed": {},
+      "added": {}
+    },
+    "performance_h6_absolute_mae_paper": {
+      "equal": true,
+      "before_count": 369,
+      "after_count": 369,
+      "removed": {},
+      "added": {}
+    },
+    "performance_h6_paper": {
+      "equal": true,
+      "before_count": 390,
+      "after_count": 390,
+      "removed": {},
+      "added": {}
+    },
+    "serr_sensitivity_h6_paper": {
+      "equal": true,
+      "before_count": 56,
+      "after_count": 56,
+      "removed": {},
+      "added": {}
+    }
+  },
+  "csv_sha256": {
+    "bcms_horizons.csv": {
+      "unchanged": true,
+      "sha256": "b71cec9e541841d606b7e02a34236fdfb773cb944cb5de86fc849de69e56604b"
+    },
+    "performance_h6.csv": {
+      "unchanged": true,
+      "sha256": "606d410d0440ac820a29126aba76db5c5310c13e884fb588ea05bcef471d3a69"
+    },
+    "serr_h6.csv": {
+      "unchanged": true,
+      "sha256": "222f496db23417fd0b6b29f0389a6fa8d24bb0e0d9309eef9b9764d3a00062e5"
+    }
+  },
+  "dimensions_mm": {
+    "bcms_sensitivity_horizons_all_test_paper": [
+      160.0,
+      127.99999999999999
+    ],
+    "bcms_sensitivity_horizons_paper": [
+      160.0,
+      127.99999999999999
+    ],
+    "performance_h6_absolute_mae_paper": [
+      160.0,
+      146.0
+    ],
+    "performance_h6_paper": [
+      160.0,
+      146.0
+    ],
+    "serr_sensitivity_h6_paper": [
+      160.0,
+      88.0
+    ]
+  }
+}

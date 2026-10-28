@@ -1,0 +1,1650 @@
+{
+  "scope": "Author-supplied aggregate CSV consistency, source-script static inspection, and optional original SVG display rounding. Raw prediction arrays and checkpoint bytes were not provided or executed.",
+  "passed": false,
+  "checks": [
+    {
+      "name": "row_counts",
+      "passed": true,
+      "detail": [
+        272,
+        24,
+        288
+      ]
+    },
+    {
+      "name": "method_count",
+      "passed": true,
+      "detail": [
+        "Full",
+        "HA",
+        "SVR",
+        "VAR",
+        "DCRNN",
+        "STGCN",
+        "GWNet",
+        "STNorm",
+        "DSTAGNN",
+        "PDFormer",
+        "STWave",
+        "PatchTST",
+        "TimeMixer",
+        "STDN",
+        "MetaDG",
+        "HyperD",
+        "RAST"
+      ]
+    },
+    {
+      "name": "performance_unique_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "serr_unique_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bcms_unique_keys",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "improvement_formula",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "serr_removal_difference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bcms_removal_difference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_training_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_training_high_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_training_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_training_high_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group0_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group0_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group1_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group1_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group2_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group2_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group3_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_group3_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_serr_high_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_serr_high_mae",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_Slow_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_Slow_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_Rapid_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_Rapid_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_high_deviation_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_high_deviation_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.9678699160926892,
+        "performance": 0.9678699160926892
+      }
+    },
+    {
+      "name": "chengdu_inflow_all_test_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_inflow_all_test_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.7099524888915326,
+        "performance": 0.7099524888915326
+      }
+    },
+    {
+      "name": "chengdu_outflow_group0_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group0_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group1_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group1_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group2_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group2_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group3_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_group3_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_serr_high_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_serr_high_mae",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_Slow_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_Slow_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_Rapid_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_Rapid_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_high_deviation_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_high_deviation_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.9700021003451219,
+        "performance": 0.9700021003451219
+      }
+    },
+    {
+      "name": "chengdu_outflow_all_test_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "chengdu_outflow_all_test_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.7099437023706501,
+        "performance": 0.7099437023706501
+      }
+    },
+    {
+      "name": "shanghai_inflow_training_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_training_high_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_training_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_training_high_count",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group0_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group0_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group1_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group1_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group2_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group2_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group3_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_group3_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_serr_high_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_serr_high_mae",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_Slow_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_Slow_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_Rapid_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_Rapid_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_high_deviation_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_high_deviation_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 1.0028916105294774,
+        "performance": 1.0028916105294774
+      }
+    },
+    {
+      "name": "shanghai_inflow_all_test_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_inflow_all_test_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.7267740852492449,
+        "performance": 0.7267740852492449
+      }
+    },
+    {
+      "name": "shanghai_outflow_group0_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group0_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group1_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group1_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group2_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group2_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group3_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_group3_full_reference",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_serr_high_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_serr_high_mae",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_Slow_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_Slow_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_Rapid_serr_common_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_Rapid_weights_sum_one",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_high_deviation_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_high_deviation_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 1.0692668757662787,
+        "performance": 1.0692668757662787
+      }
+    },
+    {
+      "name": "shanghai_outflow_all_test_bcms_h6_n",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "shanghai_outflow_all_test_bcms_h6_mae",
+      "passed": true,
+      "detail": {
+        "bcms": 0.7737837754546404,
+        "performance": 0.7737837754546404
+      }
+    },
+    {
+      "name": "paper_table_h6_display_matches",
+      "passed": false,
+      "detail": {
+        "comparisons": 56,
+        "unlisted_methods": [
+          "STNorm",
+          "STWave",
+          "VAR"
+        ],
+        "exceptions": [
+          {
+            "city": "shanghai",
+            "flow": "inflow",
+            "model": "Full",
+            "reconstructed": [
+              0.7267740852492449,
+              1.2255026830174054
+            ],
+            "displayed": [
+              0.727,
+              1.225
+            ],
+            "passed": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "paper_table_h6_mae_display_matches",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bcms_background_order_all_96_cases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "bcms_all_test_exceeds_high_all_144_cases",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "serr_self_delay_16_positive",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "serr_rapid_self_larger_all_four",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "svg_bcms_sensitivity_horizons",
+      "passed": true,
+      "detail": {
+        "figure": "bcms_sensitivity_horizons",
+        "count_svg": 144,
+        "count_csv": 144,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_bcms_sensitivity_horizons_all_test",
+      "passed": true,
+      "detail": {
+        "figure": "bcms_sensitivity_horizons_all_test",
+        "count_svg": 144,
+        "count_csv": 144,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_performance_h6",
+      "passed": true,
+      "detail": {
+        "figure": "performance_h6",
+        "count_svg": 256,
+        "count_csv": 256,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_performance_h6_chengdu",
+      "passed": true,
+      "detail": {
+        "figure": "performance_h6_chengdu",
+        "count_svg": 128,
+        "count_csv": 128,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_performance_h6_shanghai",
+      "passed": true,
+      "detail": {
+        "figure": "performance_h6_shanghai",
+        "count_svg": 128,
+        "count_csv": 128,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_serr_sensitivity_h6",
+      "passed": true,
+      "detail": {
+        "figure": "serr_sensitivity_h6",
+        "count_svg": 16,
+        "count_csv": 16,
+        "passed": true
+      }
+    },
+    {
+      "name": "svg_performance_h6_absolute_mae",
+      "passed": true,
+      "detail": {
+        "figure": "performance_h6_absolute_mae",
+        "count_svg": 272,
+        "count_csv": 272,
+        "passed": true
+      }
+    }
+  ],
+  "warnings": [
+    "The original paper table is preserved. Shanghai inflow Full H6 RMSE reconstructed from the new CSV is 1.2255026830174054 (rounds to 1.226), whereas the original workbook stores 1.22547011631793 (table 1.225). The reason for this small numerical-entry difference has not been isolated. Both fall within the source-script metric consistency tolerance (rtol=1e-4, atol=1e-5). All main-table H6 MAE display values match; the new section analyses MAE."
+  ],
+  "h6_reconstruction": [
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "n": 499545,
+      "h6_mae": 0.7099524888915326,
+      "h6_rmse": 1.2977681712576108,
+      "n_high": 310527
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "n": 526904,
+      "h6_mae": 0.7099437023706501,
+      "h6_rmse": 1.2260772092323562,
+      "n_high": 318488
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "n": 653592,
+      "h6_mae": 0.7267740852492449,
+      "h6_rmse": 1.2255026830174054,
+      "n_high": 337696
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "n": 639653,
+      "h6_mae": 0.7737837754546404,
+      "h6_rmse": 1.3449384362725068,
+      "n_high": 338352
+    }
+  ],
+  "main_table_h6": [
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "Full",
+      "reconstructed": [
+        0.7099524888915326,
+        1.2977681712576108
+      ],
+      "displayed": [
+        0.71,
+        1.298
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "HA",
+      "reconstructed": [
+        1.082959158972758,
+        1.5997606552853405
+      ],
+      "displayed": [
+        1.083,
+        1.6
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "SVR",
+      "reconstructed": [
+        0.835204789075345,
+        1.3913315053031856
+      ],
+      "displayed": [
+        0.835,
+        1.391
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "DCRNN",
+      "reconstructed": [
+        0.7900591290415071,
+        1.3625719639276281
+      ],
+      "displayed": [
+        0.79,
+        1.363
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "STGCN",
+      "reconstructed": [
+        0.7235121112200847,
+        1.34829166621054
+      ],
+      "displayed": [
+        0.724,
+        1.348
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "GWNet",
+      "reconstructed": [
+        0.7309681831896088,
+        1.3725098128944195
+      ],
+      "displayed": [
+        0.731,
+        1.373
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "DSTAGNN",
+      "reconstructed": [
+        1.0079876518468818,
+        1.4576084026088398
+      ],
+      "displayed": [
+        1.008,
+        1.458
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "PDFormer",
+      "reconstructed": [
+        1.7036463067035916,
+        2.7277211974199513
+      ],
+      "displayed": [
+        1.704,
+        2.728
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "PatchTST",
+      "reconstructed": [
+        0.8258926817793059,
+        1.482616233418438
+      ],
+      "displayed": [
+        0.826,
+        1.483
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "TimeMixer",
+      "reconstructed": [
+        0.8438761394437857,
+        1.5045248325022846
+      ],
+      "displayed": [
+        0.844,
+        1.505
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "STDN",
+      "reconstructed": [
+        1.1801059891455972,
+        1.5926363332742923
+      ],
+      "displayed": [
+        1.18,
+        1.593
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "MetaDG",
+      "reconstructed": [
+        1.170415097880136,
+        1.6782219844852702
+      ],
+      "displayed": [
+        1.17,
+        1.678
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "HyperD",
+      "reconstructed": [
+        0.7227601200915202,
+        1.368602853900108
+      ],
+      "displayed": [
+        0.723,
+        1.369
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "RAST",
+      "reconstructed": [
+        0.7343923428062944,
+        1.3718613559971835
+      ],
+      "displayed": [
+        0.734,
+        1.372
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "Full",
+      "reconstructed": [
+        0.7099437023706501,
+        1.2260772092323562
+      ],
+      "displayed": [
+        0.71,
+        1.226
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "HA",
+      "reconstructed": [
+        1.043493692395912,
+        1.4392333079363273
+      ],
+      "displayed": [
+        1.043,
+        1.439
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "SVR",
+      "reconstructed": [
+        0.8088378238814511,
+        1.2509658834068456
+      ],
+      "displayed": [
+        0.809,
+        1.251
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "DCRNN",
+      "reconstructed": [
+        0.7608550001572276,
+        1.2372876523060816
+      ],
+      "displayed": [
+        0.761,
+        1.237
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "STGCN",
+      "reconstructed": [
+        0.7156770313338637,
+        1.238576060118971
+      ],
+      "displayed": [
+        0.716,
+        1.239
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "GWNet",
+      "reconstructed": [
+        0.7175737096016619,
+        1.2647421014507862
+      ],
+      "displayed": [
+        0.718,
+        1.265
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "DSTAGNN",
+      "reconstructed": [
+        1.0066628026466669,
+        1.3756147075966942
+      ],
+      "displayed": [
+        1.007,
+        1.376
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "PDFormer",
+      "reconstructed": [
+        1.6013285220615046,
+        2.375391933983255
+      ],
+      "displayed": [
+        1.601,
+        2.375
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "PatchTST",
+      "reconstructed": [
+        0.8020809253754735,
+        1.3330205004148583
+      ],
+      "displayed": [
+        0.802,
+        1.333
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "TimeMixer",
+      "reconstructed": [
+        0.8226496462970228,
+        1.344639672740676
+      ],
+      "displayed": [
+        0.823,
+        1.345
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "STDN",
+      "reconstructed": [
+        1.1354907346354053,
+        1.5010641342710116
+      ],
+      "displayed": [
+        1.135,
+        1.501
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "MetaDG",
+      "reconstructed": [
+        1.1394248706552395,
+        1.5430935773001604
+      ],
+      "displayed": [
+        1.139,
+        1.543
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "HyperD",
+      "reconstructed": [
+        0.7118830905380426,
+        1.2485939070895773
+      ],
+      "displayed": [
+        0.712,
+        1.249
+      ],
+      "passed": true
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "RAST",
+      "reconstructed": [
+        0.7236063420857847,
+        1.2574494564374716
+      ],
+      "displayed": [
+        0.724,
+        1.257
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "Full",
+      "reconstructed": [
+        0.7267740852492449,
+        1.2255026830174054
+      ],
+      "displayed": [
+        0.727,
+        1.225
+      ],
+      "passed": false
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "HA",
+      "reconstructed": [
+        1.0403073829201517,
+        1.489664932979184
+      ],
+      "displayed": [
+        1.04,
+        1.49
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "SVR",
+      "reconstructed": [
+        0.8371531932569254,
+        1.2737290657778197
+      ],
+      "displayed": [
+        0.837,
+        1.274
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "DCRNN",
+      "reconstructed": [
+        0.7478126525727704,
+        1.2621134835106167
+      ],
+      "displayed": [
+        0.748,
+        1.262
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "STGCN",
+      "reconstructed": [
+        0.7431324858293075,
+        1.2602815031198067
+      ],
+      "displayed": [
+        0.743,
+        1.26
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "GWNet",
+      "reconstructed": [
+        0.7422589618306342,
+        1.2883966271545158
+      ],
+      "displayed": [
+        0.742,
+        1.288
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "DSTAGNN",
+      "reconstructed": [
+        0.9499049713137087,
+        1.3598763952540363
+      ],
+      "displayed": [
+        0.95,
+        1.36
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "PDFormer",
+      "reconstructed": [
+        1.5911224445222307,
+        2.4712057121319932
+      ],
+      "displayed": [
+        1.591,
+        2.471
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "PatchTST",
+      "reconstructed": [
+        0.816125708775519,
+        1.3820130966273465
+      ],
+      "displayed": [
+        0.816,
+        1.382
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "TimeMixer",
+      "reconstructed": [
+        0.8362158528914534,
+        1.3716447883545593
+      ],
+      "displayed": [
+        0.836,
+        1.372
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "STDN",
+      "reconstructed": [
+        1.219636079171354,
+        1.659158191779897
+      ],
+      "displayed": [
+        1.22,
+        1.659
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "MetaDG",
+      "reconstructed": [
+        1.168293216246051,
+        1.6239358387577956
+      ],
+      "displayed": [
+        1.168,
+        1.624
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "HyperD",
+      "reconstructed": [
+        0.7369413909437043,
+        1.2605076124302055
+      ],
+      "displayed": [
+        0.737,
+        1.261
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "RAST",
+      "reconstructed": [
+        0.7403032779790271,
+        1.2588255149270196
+      ],
+      "displayed": [
+        0.74,
+        1.259
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "Full",
+      "reconstructed": [
+        0.7737837754546404,
+        1.3449384362725068
+      ],
+      "displayed": [
+        0.774,
+        1.345
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "HA",
+      "reconstructed": [
+        1.0787067361094298,
+        1.5592717570706656
+      ],
+      "displayed": [
+        1.079,
+        1.559
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "SVR",
+      "reconstructed": [
+        0.8818631746854696,
+        1.3946229625620499
+      ],
+      "displayed": [
+        0.882,
+        1.395
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "DCRNN",
+      "reconstructed": [
+        0.7944995092700221,
+        1.3647568582665612
+      ],
+      "displayed": [
+        0.794,
+        1.365
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "STGCN",
+      "reconstructed": [
+        0.7869046366753181,
+        1.3590944703777599
+      ],
+      "displayed": [
+        0.787,
+        1.359
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "GWNet",
+      "reconstructed": [
+        0.788087144318477,
+        1.393635559360547
+      ],
+      "displayed": [
+        0.788,
+        1.394
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "DSTAGNN",
+      "reconstructed": [
+        0.9937643234268676,
+        1.4462087956625027
+      ],
+      "displayed": [
+        0.994,
+        1.446
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "PDFormer",
+      "reconstructed": [
+        1.7200130168183123,
+        2.726288741057315
+      ],
+      "displayed": [
+        1.72,
+        2.726
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "PatchTST",
+      "reconstructed": [
+        0.8626620195145372,
+        1.4651189612189692
+      ],
+      "displayed": [
+        0.863,
+        1.465
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "TimeMixer",
+      "reconstructed": [
+        0.8832659354807898,
+        1.472604192040803
+      ],
+      "displayed": [
+        0.883,
+        1.473
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "STDN",
+      "reconstructed": [
+        1.1068257672761819,
+        1.5926542496647706
+      ],
+      "displayed": [
+        1.107,
+        1.593
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "MetaDG",
+      "reconstructed": [
+        1.2454212303675734,
+        1.7481365718554833
+      ],
+      "displayed": [
+        1.245,
+        1.748
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "HyperD",
+      "reconstructed": [
+        0.7780518669904583,
+        1.3439604570580885
+      ],
+      "displayed": [
+        0.778,
+        1.344
+      ],
+      "passed": true
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "RAST",
+      "reconstructed": [
+        0.7921486188016051,
+        1.3800142178785944
+      ],
+      "displayed": [
+        0.792,
+        1.38
+      ],
+      "passed": true
+    }
+  ],
+  "unlisted_methods": [
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "VAR"
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "STNorm"
+    },
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "model": "STWave"
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "VAR"
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "STNorm"
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "model": "STWave"
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "VAR"
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "STNorm"
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "model": "STWave"
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "VAR"
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "STNorm"
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "model": "STWave"
+    }
+  ],
+  "known_original_workbook_precision": {
+    "file": "source/results/comparison/CMSRN_model_comparison_tables_chengdu_first.xlsx",
+    "sheet": "上海T5_inflow",
+    "model": "CMSRN (Ours)",
+    "h6_mae": 0.726768800793293,
+    "h6_rmse": 1.22547011631793,
+    "source": "Read directly with openpyxl, data_only=True; original workbook and paper table retained."
+  },
+  "extreme_rankings": [
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "rank": 1,
+      "full_mae": 1.340394029991472,
+      "best_baseline": "STWave",
+      "best_baseline_mae": 1.3451903678874026,
+      "improvement_pct": 0.3565545821936827
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "rank": 3,
+      "full_mae": 1.2459364935169748,
+      "best_baseline": "STWave",
+      "best_baseline_mae": 1.238529097097824,
+      "improvement_pct": -0.598080128800213
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "rank": 1,
+      "full_mae": 1.2962869541821571,
+      "best_baseline": "STWave",
+      "best_baseline_mae": 1.2993676044090208,
+      "improvement_pct": 0.23708842797145158
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "rank": 1,
+      "full_mae": 1.4795283733999343,
+      "best_baseline": "STWave",
+      "best_baseline_mae": 1.483018538868096,
+      "improvement_pct": 0.23534199854478405
+    }
+  ],
+  "self_rapid_over_slow": [
+    {
+      "city": "chengdu",
+      "flow": "inflow",
+      "rapid_over_slow": 2.8181076677042944
+    },
+    {
+      "city": "chengdu",
+      "flow": "outflow",
+      "rapid_over_slow": 1.6132469982082343
+    },
+    {
+      "city": "shanghai",
+      "flow": "inflow",
+      "rapid_over_slow": 2.124104839634874
+    },
+    {
+      "city": "shanghai",
+      "flow": "outflow",
+      "rapid_over_slow": 1.819460533308325
+    }
+  ],
+  "bcms_summary": {
+    "high_deviation": {
+      "positive": 143,
+      "negative_rows": [
+        {
+          "city": "chengdu",
+          "flow": "outflow",
+          "scope": "high_deviation",
+          "background_group": "High",
+          "horizon": 5,
+          "n": 117963,
+          "full_mae": 1.1403975935592803,
+          "removed_mae": 1.1403928015928746,
+          "delta_mae": -4.791966405681691e-06,
+          "delta_rmse": 0.0019846959008167353
+        }
+      ]
+    },
+    "all_test": {
+      "positive": 144,
+      "negative_rows": []
+    }
+  },
+  "svg_checks": [
+    {
+      "figure": "bcms_sensitivity_horizons",
+      "count_svg": 144,
+      "count_csv": 144,
+      "passed": true
+    },
+    {
+      "figure": "bcms_sensitivity_horizons_all_test",
+      "count_svg": 144,
+      "count_csv": 144,
+      "passed": true
+    },
+    {
+      "figure": "performance_h6",
+      "count_svg": 256,
+      "count_csv": 256,
+      "passed": true
+    },
+    {
+      "figure": "performance_h6_chengdu",
+      "count_svg": 128,
+      "count_csv": 128,
+      "passed": true
+    },
+    {
+      "figure": "performance_h6_shanghai",
+      "count_svg": 128,
+      "count_csv": 128,
+      "passed": true
+    },
+    {
+      "figure": "serr_sensitivity_h6",
+      "count_svg": 16,
+      "count_csv": 16,
+      "passed": true
+    },
+    {
+      "figure": "performance_h6_absolute_mae",
+      "count_svg": 272,
+      "count_csv": 272,
+      "passed": true
+    }
+  ],
+  "inputs_sha256": {
+    "data\\bcms_horizons.csv": "b71cec9e541841d606b7e02a34236fdfb773cb944cb5de86fc849de69e56604b",
+    "data\\chengdu\\thresholds_and_provenance.json": "675511ce38d2f8564d545851bfc4a15b07d6b984dbf2cf8ce51d3e6daef78235",
+    "data\\performance_h6.csv": "606d410d0440ac820a29126aba76db5c5310c13e884fb588ea05bcef471d3a69",
+    "data\\serr_h6.csv": "222f496db23417fd0b6b29f0389a6fa8d24bb0e0d9309eef9b9764d3a00062e5",
+    "data\\shanghai\\thresholds_and_provenance.json": "65a74ac91e78c67c657637d4fb3d681665c9f1cb07b32029fdd0381482f28cc4"
+  },
+  "static_findings": [
+    "Routine reference: median by day type and slot; fewer than four observations pools day types at the same slot; only an empty pooled slot falls back to the node/channel median.",
+    "Scale is fixed per node/channel: max(1,1.4826*MAD of available unique training-history residuals around their median), independent of time slot.",
+    "Threshold fitting uses only training windows with all 12 source-history slots available; all nodes, separate city and channel.",
+    "Residual-removal difference in the supplied aggregates is arithmetically exact; prepare_groups.py subtracts existing contributions without recomputing gates or retraining.",
+    "SERR mean weights sum to one within float precision; self and delay MAE removal effects are not additive because MAE is nonlinear.",
+    "Per-sample prediction decomposition identity and checkpoint hashes are author-provided provenance, not independently re-evaluated from raw arrays."
+  ]
+}

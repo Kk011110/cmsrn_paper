@@ -1,0 +1,131 @@
+{
+  "city": "shanghai",
+  "train_history_unique": 5354,
+  "fit_unique_available": 4202,
+  "training_windows": 5343,
+  "threshold_training_windows": 4180,
+  "test_windows": 1781,
+  "fit_first_timestamp": "2016-08-01T00:00:00+08:00",
+  "fit_last_timestamp": "2016-08-19T14:05:00+08:00",
+  "test_start": "2016-08-25T19:05:00+08:00",
+  "test_end": "2016-08-31T23:25:00+08:00",
+  "thresholds": [
+    {
+      "flow": "inflow",
+      "deviation_edges": [
+        0.2810378074645996,
+        0.7083333134651184,
+        1.0960475206375122
+      ],
+      "rapid_u_q75": 1.6363636255264282,
+      "background_edges": [
+        0.31106534600257874,
+        0.4893873333930969
+      ],
+      "tied_deviation_edges": false,
+      "tied_background_edges": false,
+      "train_high_deviation_points": 829362,
+      "scale_at_floor_nodes": 850,
+      "train_group_counts": [
+        2145205,
+        1305753,
+        618350,
+        211012
+      ]
+    },
+    {
+      "flow": "outflow",
+      "deviation_edges": [
+        0.25,
+        0.674490749835968,
+        1.0833333730697632
+      ],
+      "rapid_u_q75": 1.5909091234207153,
+      "background_edges": [
+        0.3112936317920685,
+        0.4925173819065094
+      ],
+      "tied_deviation_edges": false,
+      "tied_background_edges": false,
+      "train_high_deviation_points": 839582,
+      "scale_at_floor_nodes": 810,
+      "train_group_counts": [
+        2150341,
+        1290397,
+        636971,
+        202611
+      ]
+    }
+  ],
+  "calendar_type_counts": {
+    "0": 3626,
+    "1": 576
+  },
+  "sources": {
+    "baselines/_protocol/splits/shanghai.npz": "2ffe6dc7216d0a41acbe282cf06a340c3a68e913a1469489e5c2f74ee8fc685b",
+    "datasets/ShanghaiTaxiOD32x32T5/timestamp_index.csv": "4b229e7d8f843eb81b979fb863b3e5e679808e9dca238eab3f4608f90ce9ba8e",
+    "datasets/ShanghaiTaxiOD32x32T5/source_quality_mask.npy": "01c027f380c1867e1288a14b26260e508f92f32250d64c2f3f8e381f9b998ea8",
+    "datasets/ShanghaiTaxiOD32x32T5/all_data.npy": "f952f1e0d24dfaa08974c49e58b0eed6309fdf7664841b91c695018fbedc649c",
+    "baselines/Full/outputs/shanghai/end_to_end_full_batch64_v2__seed42/artifacts/candidates.npz": "f3afca24f239bf900640c869ce3ee3b3c299fd293e38380721022a5be4ed92cb",
+    "baselines/Full/outputs/shanghai/end_to_end_full_batch64_v2__seed42/config_final.json": "2ecfe86f48e622a55b2468c7dc428ccbfb395ea0cf074263bbde04758d38389c"
+  },
+  "raw_data_path": "/home/changan/wangkai/VsCodeProjects/traffic_volume_model_experiment/datasets/ShanghaiTaxiOD32x32T5/all_data.npy",
+  "checkpoint": {
+    "city": "shanghai",
+    "run_id": "end_to_end_full_batch64_v2__seed42",
+    "identity": "9ea352879397a66050f475e0669c14dc7ab3ceb412ada35be4d7dc838c53310a",
+    "checkpoint_path": "baselines/Full/outputs/shanghai/end_to_end_full_batch64_v2__seed42/checkpoints/best.ckpt",
+    "checkpoint_sha256": "396fa24fd02055eba3b3ed38e10398a7d028f179768bd7cb4668a108bda78276",
+    "checkpoint_epoch": 116,
+    "model": "TEDDCF + adaptive Self/Delay S0 + BGST",
+    "alpha": 0.22799426317214966,
+    "bgst_beta": 0.04401543736457825,
+    "gate_shape": "[sample,node,flow_channel,expert]",
+    "gate_shared_across_horizons": true,
+    "horizon_step": 6,
+    "horizon_minutes": 30,
+    "test_windows": 1781,
+    "grid_shape": [
+      32,
+      32
+    ],
+    "node_encoding": "node_id=row*32+column; zero based",
+    "channel_names": [
+      "inflow",
+      "outflow"
+    ],
+    "expert_names": [
+      "self",
+      "delay"
+    ],
+    "flow_channel_semantics": [
+      "destination_count",
+      "origin_count"
+    ],
+    "timezone": "Asia/Shanghai",
+    "contribution_units": "original flow counts per 5-minute bin; signed additive increment",
+    "normalized_formula": "prediction=base+alpha*(ws*(self_output-base)+wd*delay_output)+bgst",
+    "physical_formula": "prediction=base_physical+self_contribution+delay_contribution+bgst_contribution",
+    "contribution_definition": "alpha and channel standard deviation are included; means added only to base",
+    "intervention_definition": "Same frozen parameters/gates; subtract selected additive contribution. Self residual disabled by setting self_output=base, delay by setting delay_output=0. No renormalization or retraining.",
+    "comparison_limit": "Output magnitude, fixed-model removal error and trained-ablation performance are different quantities. No causal claim.",
+    "test_scope": "All fixed test windows and all 1024 nodes; no error-based filtering for aggregate expert analysis",
+    "provenance_hashes": {
+      "provenance/artifacts_manifest.json": "1f294169ecc820b7b626f748326b0344430113e3e3bf9c418e633fa5028b0ad0",
+      "provenance/baseline_split.npz": "2ffe6dc7216d0a41acbe282cf06a340c3a68e913a1469489e5c2f74ee8fc685b",
+      "provenance/complete.json": "4f53587bd6a4067e332dea54181336fab26d610c0ba4211ccdf3bf1ddeda87ad",
+      "provenance/config_final.json": "2ecfe86f48e622a55b2468c7dc428ccbfb395ea0cf074263bbde04758d38389c",
+      "provenance/dataset_manifest.json": "d35076676ab9c442d6a1685714997f04acbf4ed9569437e488d715e32f0fadc4",
+      "provenance/metrics.json": "bc5eee07a166f4f6fecc311460b29a1407d979fce8da4f4c468c193cbb40c257",
+      "provenance/metrics_complete.json": "451955b467950df9f33e7911f3b18660bb70b907985c3e1cb4f16fe11b3782d7",
+      "provenance/previous_case01_metrics.json": "14d54176bb6bcc450379d904dcdbdf04c877f7585a59d272c6232d9c8c9771c4",
+      "provenance/previous_curve_selection.json": "f8bbba3f031e1aafb6e4346521171cb15bdebfdf141f3af85dc722c9bce7852f",
+      "provenance/scaler.json": "39b683d25c79fc5b96b40037262c23a0411e9c870ecce9f767600533f0b8f3cb",
+      "provenance/source_quality_mask.npy": "01c027f380c1867e1288a14b26260e508f92f32250d64c2f3f8e381f9b998ea8",
+      "provenance/timestamp_index.csv": "4b229e7d8f843eb81b979fb863b3e5e679808e9dca238eab3f4608f90ce9ba8e"
+    },
+    "created_at": "2026-10-15T11:00:23.582524+08:00"
+  },
+  "calendar_warning": "External reference uses actual timestamps; deliberately independent of internal S0 calendar.",
+  "background_proxy": "Raw standardized residual mean, not learned BCMS low-frequency features; fixed CMSRN train-fitted candidate set."
+}

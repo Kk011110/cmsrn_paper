@@ -1,0 +1,23 @@
+{
+  "pdf": "D:\\VsCodeProjects\\traffic_volume_model_experiment\\output\\cmsrn_scenarios_20261027\\CMSRN-LaTeX-scenario-analysis\\cmsrn-paper-tex\\figures\\scenarios\\bcms_sensitivity_horizons_paper.pdf",
+  "auditable": true,
+  "verdict": "PASS",
+  "page_count": 1,
+  "visible_text_box_count": 227,
+  "text_trace_count": 258,
+  "stroke_path_count": 74,
+  "filled_region_count": 11,
+  "image_region_count": 5,
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "contained_fill_overlays": 144,
+    "contained_image_overlays": 144
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": []
+}

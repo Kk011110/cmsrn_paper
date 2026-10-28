@@ -1,0 +1,35 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = none
+\subsection{主要实验结果}\label{sec:exp-main-results}
+
+本节从总体预测精度、空间分布、常规模式偏离情景及残差作用四个方面评价CMSRN，结合全测试集比较与固定模型诊断，考察两类修正证据在不同交通状态下的表现。
+
+\subsubsection{整体预测性能}\label{sec:results-overall}
+
+表~\ref{tab:chengdu-inflow}--\ref{tab:shanghai-outflow}比较了CMSRN与13种基线在成都和上海流入、流出预测任务上的表现。在上述13种基线的比较范围内，CMSRN在32个表列指标中取得26项最优，其余6项均排名第二；在反映整个预测区间表现的8项AVG12指标中，取得7项最优。以下相对变化均根据未舍入数值计算，并以对应任务和指标的最强基线为参照。
+
+CMSRN在两个城市的流入与流出任务上均取得最低AVG12 MAE。成都流入和流出的AVG12 MAE分别为0.708和0.709，相较于HyperD分别降低2.00\%和0.46\%；上海流入和流出的对应结果为0.728和0.774，分别降低1.19\%和0.46\%。
+
+RMSE呈现出更明显的任务差异。成都流入、成都流出和上海流入的AVG12 RMSE分别为1.294、1.223和1.228，相较于各自最强基线分别降低5.01\%、1.50\%和2.54\%；前两项的最强基线为STGCN，后一项为HyperD。上海流出的AVG12 RMSE为1.346，略高于HyperD的1.344，相对差距为0.17\%。因此，CMSRN在流入预测上的双指标优势更为一致，在流出预测上则与最强基线较为接近。
+
+从预测时距看，CMSRN在两个城市的流入任务上均取得H3、H6和H12的最低MAE与RMSE。随着时距由H3延伸至H12，CMSRN在四个任务上的MAE增幅为0.73\%--1.85\%，RMSE增幅为0.53\%--2.83\%。流出任务的优势则未覆盖所有时距和指标：两个城市在H12的MAE均由HyperD取得最优，在上海流出任务上，HyperD在三个报告时距的RMSE也均略低于CMSRN。
+
+\input{tables/chengdu-inflow}
+\input{tables/chengdu-outflow}
+\input{tables/shanghai-inflow}
+\input{tables/shanghai-outflow}
+
+\subsubsection{空间预测表现}\label{sec:results-spatial}
+
+空间案例与后续情景分析保留生成图件时的预测输出；成都整体性能比较采用本次更新结果。图~\ref{fig:cmsrn-spatial-h6}进一步展示两个城市在H6的空间预测案例。CMSRN保留了主要高流量区域的空间位置，能够反映流量集中分布的结构；与此同时，部分热点的峰值强度和低流量区域仍存在幅值偏差。该空间对照补充展示了模型对区域流量分布的刻画能力及局部误差特征。
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/cmsrn-spatial-h6.pdf}
+  \caption[H6空间预测案例]{\textbf{第6个预测步（提前30分钟）的空间预测案例。}上排（a）--（c）为成都2016年11月25日09:50，下排（d）--（f）为上海2016年8月25日20:20，依次展示真实流量、CMSRN预测和绝对误差。每幅图表示原始\(32\times32\)网格上单个5分钟时间片的流入量与流出量之和；两城市采用统一色标，右侧上、下色条分别对应总流量与绝对误差。图内MAE为该时间片总流量在全部1,024个网格上的平均绝对误差，表格指标则按流量通道在测试集的正目标位置上计算。案例依据误差与空间对比度事后选取，时间均为UTC+8。}
+  \label{fig:cmsrn-spatial-h6}
+\end{figure}
+
+% 情景性能与两条残差通路的分析统一纳入5.2。
+\input{sections/05-scenarios}

@@ -1,0 +1,10 @@
+Nature Figure Rendered Collision Audit
+pdf: D:\VsCodeProjects\traffic_volume_model_experiment\output\cmsrn_scenarios_20261027\CMSRN-LaTeX-scenario-analysis\cmsrn-paper-tex\figures\scenarios\serr_sensitivity_h6_paper.pdf
+pages: 1
+visible text boxes: 56
+stroke paths: 24
+
+
+summary: 0 fail, 0 warn, 16 contained fill overlays, 0 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review

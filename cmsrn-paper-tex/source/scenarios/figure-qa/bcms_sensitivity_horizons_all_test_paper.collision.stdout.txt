@@ -1,0 +1,10 @@
+Nature Figure Rendered Collision Audit
+pdf: D:\VsCodeProjects\traffic_volume_model_experiment\output\cmsrn_scenarios_20261027\CMSRN-LaTeX-scenario-analysis\cmsrn-paper-tex\figures\scenarios\bcms_sensitivity_horizons_all_test_paper.pdf
+pages: 1
+visible text boxes: 227
+stroke paths: 74
+
+
+summary: 0 fail, 0 warn, 144 contained fill overlays, 144 contained image overlays
+verdict: PASS
+note: contained overlays can be intentional; WARN findings need final-size visual review

@@ -1,0 +1,22 @@
+{
+  "changed_existing_files": [
+    "main.log",
+    "main.pdf",
+    "README.md",
+    "sections/05-ablation.tex",
+    "sections/05-scenarios.tex",
+    "sections/06-discussion.tex",
+    "supplementary-scenarios.pdf",
+    "supplementary-scenarios.tex",
+    "tables/serr-expert-ablation.tex"
+  ],
+  "unchanged_figure_count": 29,
+  "main_pages": 25,
+  "supplement_pages": 4,
+  "numeric_checks": "passed",
+  "compile_checks": "passed; no undefined references or overfull warnings",
+  "visual_checks": [
+    "main pages 19-20",
+    "supplement page 4"
+  ]
+}

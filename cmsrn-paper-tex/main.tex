@@ -1,0 +1,32 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = zh_CN
+% 在 TeXstudio 中打开本文件；使用 XeLaTeX 连续编译两次。
+\documentclass[UTF8,a4paper,zihao=-4,fontset=fandol]{ctexart}
+\input{preamble}
+
+% 原稿没有标题、作者或摘要，故默认直接从引言开始。
+% 后续填写信息时，可取消以下注释，并启用正文中的 \maketitle。
+% \title{填写论文标题}
+% \author{填写作者信息}
+% \date{}
+
+\begin{document}
+% \maketitle
+% \begin{abstract}
+% 在这里填写摘要。
+% \end{abstract}
+% \noindent\textbf{关键词：}填写关键词
+
+\input{sections/01-introduction}
+\input{sections/02-related-work}
+\input{sections/03-problem-definition}
+\input{sections/04-methodology}
+
+\input{sections/05-experiments}
+
+\input{sections/06-discussion}
+
+\FloatBarrier
+\input{references}
+\end{document}

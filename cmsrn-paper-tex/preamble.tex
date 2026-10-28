@@ -1,0 +1,67 @@
+% !TeX root = main.tex
+% 中文字体随 TeX Live 提供，可随工程迁移，不依赖 Windows 专用字体。
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\setmainfont{texgyretermes-regular.otf}[
+  BoldFont=texgyretermes-bold.otf,
+  ItalicFont=texgyretermes-italic.otf,
+  BoldItalicFont=texgyretermes-bolditalic.otf]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage[font=small,labelfont=bf,labelsep=quad,
+            justification=justified,singlelinecheck=false]{caption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[superscript,nomove]{cite}
+% 保留原稿的方括号上标引文格式。
+\makeatletter
+\renewcommand{\@citess}[1]{\textsuperscript{\normalfont[#1]}}
+\makeatother
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={CMSRN 中文论文}}
+\ctexset{
+  section={format=\Large\bfseries,number=\arabic{section},
+           beforeskip=1.2ex plus 0.5ex,afterskip=0.8ex plus 0.2ex},
+  subsection={format=\large\bfseries,beforeskip=1ex plus 0.3ex,
+              afterskip=0.6ex plus 0.2ex}
+}
+\linespread{1.2}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist[enumerate]{leftmargin=2em,label=\arabic*.,itemsep=0.25em,topsep=0.4em}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\allowdisplaybreaks[1]
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+\pagestyle{plain}
+
+% Compact, readable float placement; retain the original font size and margins.
+\DeclareCaptionFont{compact}{\linespread{1.05}\selectfont}
+\captionsetup{font={small,compact},skip=5pt}
+\setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
+\setlength{\floatsep}{9pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.90}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{3}
+\setcounter{totalnumber}{6}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}%
+  \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{3pt plus 1pt minus 1pt}%
+  \setlength{\belowdisplayshortskip}{6pt plus 1pt minus 1pt}}
+
+% Keep each figure/table inside its owning section, subsection and subsubsection.
+\AddToHook{cmd/section/before}{\FloatBarrier}
+\AddToHook{cmd/subsection/before}{\FloatBarrier}
+\AddToHook{cmd/subsubsection/before}{\FloatBarrier}

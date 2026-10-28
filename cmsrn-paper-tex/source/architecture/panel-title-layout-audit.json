@@ -1,0 +1,26 @@
+{
+  "pdf_points": [
+    491.04,
+    253.0
+  ],
+  "png_pixels": [
+    2047,
+    1055
+  ],
+  "vector_text_identical": true,
+  "title_baselines_pdf_y": [
+    150.0,
+    4.5,
+    4.5
+  ],
+  "top_panel_bottom_pdf_y": 161.47,
+  "lower_panel_bottom_pdf_y": [
+    13.88876,
+    14.26376
+  ],
+  "top": 110,
+  "lower": 145,
+  "caption_a_text_runs": 10,
+  "caption_b_text_runs": 1,
+  "caption_c_text_runs": 1
+}

@@ -1,0 +1,4 @@
+﻿variant,inflow_mae,outflow_mae,joint_mae,reported_relative_change_pct
+Full,0.708421,0.708654,0.708537,
+w/o self expert,0.711386,0.711155,0.711270,0.3857
+w/o delay expert,0.709032,0.708673,0.708852,0.0444

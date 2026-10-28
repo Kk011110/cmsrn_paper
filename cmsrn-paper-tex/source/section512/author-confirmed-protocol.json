@@ -1,0 +1,6 @@
+{
+  "date": "2026-10-26",
+  "authority": "Direct user answers in this chat",
+  "metric_protocol": "H3、H6和H12分别表示第3、6和12个预测步的指标。对每个流量通道，各单步指标在全部测试窗口及节点的正目标位置上合并计算，测试批次补齐样本不参与统计。AVG12为12个单步指标的算术平均，其中RMSE先在各预测步内计算，再跨步取平均。",
+  "baseline_naming": "名称和版本均按照HyperD、RAST官方名称命名，不做额外标注。"
+}

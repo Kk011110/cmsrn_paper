@@ -1,0 +1,57 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = none
+
+\section{问题定义}\label{sec:problem-definition}
+
+将研究区域划分为\(N\)个规则网格，并将每个网格视为一个预测节点。记时刻\(t\)的区域流量矩阵为：
+\begin{equation}
+\label{eq:flow}
+X_t = \bigl[x_t^{\mathrm{in}},\,x_t^{\mathrm{out}}\bigr]
+\in \mathbb{R}^{N\times 2},
+\end{equation}
+
+其中，\(x_t^{\mathrm{in}},x_t^{\mathrm{out}}\in\mathbb{R}^{N}\)分别表示各节点在该采样时间段内的流入量与流出量，对应以该区域为目的地与出发地的出行计数。本文在同一模型中联合预测两类流量，通道顺序为流入、流出。以下序列张量按时间、节点、流量通道排列，并省略批次维度。
+
+给定截至时刻\(t\)、长度为\(T\)的历史观测序列：
+\begin{equation}
+\label{eq:history}
+X_{t-T+1:t} = \bigl[X_{t-T+1},\ldots,X_t\bigr]
+\in \mathbb{R}^{T\times N\times 2},
+\end{equation}
+
+目标是联合预测未来\(H\)个时间步的流入量与流出量：
+\begin{equation}
+\label{eq:future}
+Y_{t+1:t+H} = \bigl[X_{t+1},\ldots,X_{t+H}\bigr]
+\in \mathbb{R}^{H\times N\times 2}.
+\end{equation}
+
+其中，\(T\)和\(H\)分别为历史窗口长度和预测步数。本文采用5分钟采样间隔，设置\(T=H=12\)，即利用过去60分钟的观测预测未来60分钟的流量。
+
+上述任务可表示为学习时空映射：
+\begin{equation}
+\label{eq:mapping}
+\widehat{Y}_{t+1:t+H}
+= f_{\theta}\!\left(X_{t-T+1:t},C_t;\mathcal{S},\mathcal{B}\right)
+\in \mathbb{R}^{H\times N\times 2},
+\end{equation}
+
+其中，\(\theta\)为模型的可学习参数；\(C_t\in\mathbb{R}^{T\times 2}\)为历史窗口对应的日内时刻与星期信息，在各节点间共享；\(\mathcal{S}\)表示预先构建的空间关系支持，包括节点自身关系、按流量通道构建的有向时滞关系及跨区域候选邻域；\(\mathcal{B}\)为训练期构建并固定使用的常规流量基线查找表。预测以截至\(t\)的观测及相应时间信息为依据，\(\widehat{Y}_{t+1:t+H}\)表示原始流量尺度上的预测结果。
+
+为描述已观测交通状态对常规模式的偏离，对历史窗口内任一时刻\(u\in\{t-T+1,\ldots,t\}\)，从\(\mathcal{B}\)中提取对应的常规流量参照：
+\begin{equation}
+\label{eq:baseline}
+b_u=\bigl[b_u^{\mathrm{in}},\,b_u^{\mathrm{out}}\bigr]
+\in\mathbb{R}^{N\times 2}.
+\end{equation}
+
+该基线由训练期历史观测按节点、流量通道、工作日或周末类型及日内时段统计获得。相对于常规参照的流量偏差定义为：
+\begin{equation}
+\label{eq:deviation}
+D_u=X_u-b_u\in\mathbb{R}^{N\times 2}.
+\end{equation}
+
+\(D_u\)量化已观测流量与对应常规水平之间的差异。方法学进一步介绍如何结合历史轨迹与常规参照构造趋势偏差和短时波动证据。
+
+在上述流入与流出联合预测任务中，本文重点研究常规模式偏离时的预测修正：结合节点自身近期动态与跨区域时滞关联，自适应分配异质证据的修正贡献，并根据双端流量背景与预测时距选择历史消息。相应的残差精炼机制在第\ref{sec:methodology}节展开。

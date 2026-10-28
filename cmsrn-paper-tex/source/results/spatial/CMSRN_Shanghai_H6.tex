@@ -1,0 +1,20 @@
+% Compile with pdfLaTeX from this file's folder.
+% Keep the matching PDF under figures/ (included in the delivery package).
+% Figure numbers are placeholders; change the figure counter for your manuscript.
+\documentclass[10pt,border=0pt,varwidth=269bp]{standalone}
+\usepackage{graphicx}
+\usepackage{stix}
+\usepackage{caption}
+\captionsetup{font=normalsize,labelfont=normalfont,textfont=normalfont,
+  labelsep=colon,justification=justified,singlelinecheck=false,skip=7bp}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\begin{document}
+\begin{minipage}{269bp}
+\centering
+\includegraphics[width=\linewidth]{../figures/shanghai_h6_triptych.pdf}
+\setcounter{figure}{10}
+\captionof{figure}{Spatial prediction heatmaps on Shanghai at horizon $t$+6 (30 min ahead), targeting 2016-08-25 20:20 (UTC+08:00). \textbf{(a)} Ground truth, \textbf{(b)} CMSRN prediction, and \textbf{(c)} absolute error of inflow + outflow on the original 32 $\times$ 32 grid. MAE = 1.5708 and spatial $r$ = 0.8580. Values are counts in one 5-min bin; MAE includes all 1,024 cells. This case was selected post hoc using error and spatial-contrast criteria.}
+\label{fig:cmsrn_shanghai_h6}
+\end{minipage}
+\end{document}

@@ -1,0 +1,25 @@
+% !TeX root = ../supplementary-scenarios.tex
+\begin{table}[!htbp]
+  \centering
+  \caption{成都T5消融实验的分通道与联合AVG12指标}
+  \label{tab:supp-ablation-channels}
+  \begingroup
+  \linespread{1}\fontsize{9}{11}\selectfont
+  \setlength{\tabcolsep}{3pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+    \toprule
+    模型配置 & 流入MAE & 流入RMSE & 流出MAE & 流出RMSE & 联合MAE & 联合RMSE \\
+    \midrule
+    CMSRN & \textbf{0.708421} & \textbf{1.293545} & 0.708654 & 1.223468 & \textbf{0.708537} & \textbf{1.258507} \\
+    w/o Self Expert (A1) & 0.711386 & 1.301713 & 0.711155 & \textbf{1.222889} & 0.711270 & 1.262301 \\
+    w/o Delay Expert (A2) & 0.709032 & 1.302225 & 0.708673 & 1.223911 & 0.708852 & 1.263068 \\
+    w/o BCMS (A3) & 0.708573 & 1.295331 & \textbf{0.708567} & 1.223305 & 0.708570 & 1.259318 \\
+    \bottomrule
+  \end{tabular*}
+  \par\vspace{3pt}
+  \begin{minipage}{\linewidth}\footnotesize
+  注：加粗表示列内最低误差；联合指标按两通道等权平均，所列值保留六位小数。
+  \end{minipage}
+  \endgroup
+\end{table}

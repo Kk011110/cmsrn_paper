@@ -1,0 +1,50 @@
+{
+  "width_mm": 160.0,
+  "height_mm": 146.0,
+  "panel_titles": [
+    {
+      "label": "(a) Chengdu \u00b7 inflow",
+      "center_error_pt": 0.0,
+      "gap_below_content_pt": 4.000000000000032,
+      "bbox_pt": [
+        100.3954724409449,
+        231.39827755905506,
+        180.0454724409449,
+        239.77952755905505
+      ]
+    },
+    {
+      "label": "(b) Chengdu \u00b7 outflow",
+      "center_error_pt": 0.0,
+      "gap_below_content_pt": 4.000000000000032,
+      "bbox_pt": [
+        325.088031496063,
+        231.39827755905506,
+        410.4080314960631,
+        239.77952755905505
+      ]
+    },
+    {
+      "label": "(c) Shanghai \u00b7 inflow",
+      "center_error_pt": 0.0,
+      "gap_below_content_pt": 4.000000000000001,
+      "bbox_pt": [
+        100.1704724409449,
+        41.47701771653542,
+        180.2704724409449,
+        49.85826771653542
+      ]
+    },
+    {
+      "label": "(d) Shanghai \u00b7 outflow",
+      "center_error_pt": 0.0,
+      "gap_below_content_pt": 4.000000000000001,
+      "bbox_pt": [
+        324.63803149606304,
+        41.47701771653542,
+        410.85803149606306,
+        49.85826771653542
+      ]
+    }
+  ]
+}

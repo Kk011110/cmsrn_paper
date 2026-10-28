@@ -1,0 +1,27 @@
+{
+  "chengdu": {
+    "time_slots": 8640,
+    "windows": 8617,
+    "split_counts": {
+      "train": 5170,
+      "val": 1724,
+      "test": 1723
+    },
+    "source": "indices() in attached new_full_architecture.py; full monthly time axis confirmed by preprocessing products"
+  },
+  "shanghai": {
+    "time_slots": 8928,
+    "windows": 8905,
+    "split_counts": {
+      "train": 5343,
+      "val": 1781,
+      "test": 1781
+    },
+    "source": "indices() in attached new_full_architecture.py; full monthly time axis confirmed by preprocessing products",
+    "windows_touching_confirmed_anomaly": {
+      "train": 1175,
+      "val": 0,
+      "test": 0
+    }
+  }
+}

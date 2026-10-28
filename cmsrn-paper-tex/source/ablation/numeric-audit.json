@@ -1,0 +1,57 @@
+{
+  "source": "Author-provided table in conversation on 2026-10-27",
+  "rows": [
+    {
+      "variant": "Full",
+      "values_as_provided": [
+        "0.708421",
+        "0.708654",
+        "0.708537",
+        ""
+      ],
+      "displayed_channel_mean": "0.7085375",
+      "displayed_joint_minus_channel_mean": "-5E-7",
+      "absolute_increases_from_displayed_values": [
+        "0.000000",
+        "0.000000",
+        "0.000000"
+      ],
+      "relative_joint_increase_pct_from_displayed_values": "0"
+    },
+    {
+      "variant": "w/o self expert",
+      "values_as_provided": [
+        "0.711386",
+        "0.711155",
+        "0.711270",
+        "0.3857"
+      ],
+      "displayed_channel_mean": "0.7112705",
+      "displayed_joint_minus_channel_mean": "-5E-7",
+      "absolute_increases_from_displayed_values": [
+        "0.002965",
+        "0.002501",
+        "0.002733"
+      ],
+      "relative_joint_increase_pct_from_displayed_values": "0.3857243870115463271501699982"
+    },
+    {
+      "variant": "w/o delay expert",
+      "values_as_provided": [
+        "0.709032",
+        "0.708673",
+        "0.708852",
+        "0.0444"
+      ],
+      "displayed_channel_mean": "0.7088525",
+      "displayed_joint_minus_channel_mean": "-5E-7",
+      "absolute_increases_from_displayed_values": [
+        "0.000611",
+        "0.000019",
+        "0.000315"
+      ],
+      "relative_joint_increase_pct_from_displayed_values": "0.04445780530868536152663869353"
+    }
+  ],
+  "note": "Original values preserved. Six-decimal channel means differ from reported joint values by 0.0000005. Delay relative percentage differs only in final reported decimal; original unrounded values were not supplied. Manuscript prose may use about 0.39% and 0.04%."
+}

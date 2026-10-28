@@ -1,0 +1,20 @@
+{
+  "input_zip_sha256": "f47cf62ce1951c3207065a022b18ce6c298908794f898f10965020c246282696",
+  "files_unchanged": 116,
+  "changed_original_files": [
+    "main.aux",
+    "main.log",
+    "main.out",
+    "main.pdf",
+    "main.synctex.gz",
+    "README.md",
+    "references.tex",
+    "sections/05-experiments.tex",
+    "sections/05-main-results.tex",
+    "sections/06-discussion.tex"
+  ],
+  "missing_original_files": [],
+  "main_pdf_sha256": "90a8695a08ce1a3ccf46a592573e656f37dcacd210949228ec004e60a33790ea",
+  "supplement_pdf_sha256": "ba916001f221ff7d89dab751413a59a22da4f2307dce111d47b6f9067d6bddf8",
+  "new_files": 84
+}

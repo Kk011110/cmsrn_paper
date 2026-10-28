@@ -1,0 +1,10 @@
+{
+  "pdf": "D:\\VsCodeProjects\\traffic_volume_model_experiment\\output\\cmsrn_scenarios_20261027\\CMSRN-LaTeX-scenario-analysis\\cmsrn-paper-tex\\figures\\scenarios\\performance_h6_paper.pdf",
+  "auditable": true,
+  "minimum_required_pt": 5.0,
+  "minimum_found_pt": 6.7,
+  "text_run_count": 57,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}

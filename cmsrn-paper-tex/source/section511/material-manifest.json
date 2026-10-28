@@ -1,0 +1,67 @@
+[
+  {
+    "path": "C:\\Users\\13594\\Desktop\\CMSRN-LaTeX-panel-b-fixed.zip",
+    "bytes": 1742461,
+    "sha256": "e27a5f1b1b957fa4c49f75337a81d59c4c28d9b2fa6a4ffb62f688102483fe90"
+  },
+  {
+    "path": "C:\\Users\\13594\\Desktop\\new_full_architecture.py",
+    "bytes": 56731,
+    "sha256": "562b9b6cf06d7e676c94dc585e5587514fac00f58be5ee18c9fd106d0d82c94f"
+  },
+  {
+    "path": "C:\\Users\\13594\\Desktop\\prism.pdf",
+    "bytes": 8405758,
+    "sha256": "765ce3551915da590bd5563302bcdf7d8e4472e4b6b06a921d73327ea426fbe8"
+  },
+  {
+    "path": "C:\\Users\\13594\\AppData\\Local\\Temp\\codex-clipboard-5d589770-9ab5-4588-910c-a7bc797a7d64.png",
+    "bytes": 4300139,
+    "sha256": "5d066e090ec00ce0648d45fce101691b6bc1a3fa6ddd2349128edc1f6ae2c5fb"
+  },
+  {
+    "path": "C:\\Users\\13594\\AppData\\Local\\Temp\\codex-clipboard-a70a926f-7b3d-4f8b-a280-de2fd560bc6f.png",
+    "bytes": 4522157,
+    "sha256": "e6e43403a4faf7c86fefc600f5cb796bfebad7cd411efcacc98947ed7dbd5663"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\chengdu_data_processing\\config\\preprocessing_t5.json",
+    "bytes": 1054,
+    "sha256": "0953334d723f9c942394092a5e435676a4e1fe60f78e45ddb9ad576aa9fdd587"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\chengdu_data_processing\\output\\ChengduDidiOD32x32T5\\dataset_manifest.json",
+    "bytes": 23370,
+    "sha256": "000711074ae87923eb2a4b99f01dc9dc709743a7a55b71d1b9842dd844a0b13b"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\chengdu_data_processing\\output\\ChengduDidiOD32x32T5\\visualizations\\visualization_manifest.json",
+    "bytes": 11827,
+    "sha256": "77eed78ea5ad8fa0cf73c1a4427c3703f80584767396a076ea3b400300302ab7"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\chengdu_data_processing\\chengdu_preprocessing\\cleaning.py",
+    "bytes": 3656,
+    "sha256": "c2cf2bb52816603d05347649517632a2d70aea840b0345ff2294fedd3a00dcf4"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\shanghai_data_processing\\config\\preprocessing_t5.json",
+    "bytes": 939,
+    "sha256": "a203d2c7034d42ea256fa5d63aed931b7b6ed61ca46ba74f25bf31bcc0f42d86"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\shanghai_data_processing\\output\\ShanghaiTaxiOD32x32T5\\dataset_manifest.json",
+    "bytes": 33991,
+    "sha256": "4b5a12ad54cf7aab4a44ee61f702e616badb202a8ddcb074048d09ce7c0a5262"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\shanghai_data_processing\\output\\ShanghaiTaxiOD32x32T5\\visualizations\\visualization_manifest.json",
+    "bytes": 11911,
+    "sha256": "6c4fab99c26ffae69f64c108d7ad5f3501e7445182b6b31a1a12ed71323c64ae"
+  },
+  {
+    "path": "D:\\VsCodeProjects\\traffic_volume_data_preprocessing\\shanghai_data_processing\\shanghai_preprocessing\\cleaning.py",
+    "bytes": 4185,
+    "sha256": "b9db17061eb0ca5d34b00ce0bf6380c72dfbde2c3579d2c38eebc4baa151fe00"
+  }
+]

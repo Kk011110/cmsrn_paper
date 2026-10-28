@@ -1,0 +1,22 @@
+{
+  "training_protocol": "固定seed=42的单变量验证集敏感性实验，每个配置训练120轮、不使用提前停止，按最低联合验证MAE选择checkpoint。",
+  "validation_metrics": "图中的validation MAE/RMSE沿用5.1.2的正目标值掩码，每个batch内，将节点、样本和12个预测步中的有效位置合并，分别计算各通道指标。joint是流入、流出算术平均，两个通道等权平均；随后对验证batch等权平均。未排除补齐重复样本，成都原有1724个验证窗口，补齐4个重复窗口后，以1728个窗口、27个batch参与计算。",
+  "initialization_and_reference": {
+    "direct_initialization": true,
+    "alpha_assignment": "model.alpha.fill_(c['s0']['alpha_init'])",
+    "beta_assignment": "model.bgst.beta.fill_(c['bgst']['beta_init'])",
+    "atanh_applied": false,
+    "bcms_effective_initial_multiplier": "tanh(beta_0)",
+    "parameters_remain_trainable": true,
+    "reference": [
+      32,
+      32,
+      0,
+      0
+    ],
+    "also_formal_chengdu_shanghai_full_config": true,
+    "parameterized_sweep": "先构建原Full，仅当门控维度或BGST维度不等于32时替换对应模块；参考取值32不触发替换。",
+    "separate_t3": "此前独立调参T3采用alpha_0=0.01，不能与本次REF和正式对比Full混称。",
+    "verification_source": "作者确认已核对远端初始化代码、正式运行配置快照及源码校验值；本机未直接读取这些远端文件。"
+  }
+}

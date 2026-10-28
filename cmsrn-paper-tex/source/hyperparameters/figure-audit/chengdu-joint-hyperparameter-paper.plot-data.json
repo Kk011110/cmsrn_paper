@@ -1,0 +1,172 @@
+{
+  "width_mm": 160.0,
+  "height_mm": 106.00000000000001,
+  "rows": 20,
+  "values": 40,
+  "display_decimals": 4,
+  "geometry": "Full supplied precision",
+  "alignment": "PASS",
+  "uncertainty": "One run per configuration; no error bars",
+  "data": [
+    {
+      "parameter": "s0.gate_hidden_dim",
+      "value": "8",
+      "channel": "joint",
+      "mae": "0.694087545077006",
+      "rmse": "1.2193625503116183",
+      "run_id": "hpv1__chengdu_t5_joint__gwidth_8__seed42__r01"
+    },
+    {
+      "parameter": "s0.gate_hidden_dim",
+      "value": "16",
+      "channel": "joint",
+      "mae": "0.6943492911480091",
+      "rmse": "1.2212096276106659",
+      "run_id": "hpv1__chengdu_t5_joint__gwidth_16__seed42__r01"
+    },
+    {
+      "parameter": "s0.gate_hidden_dim",
+      "value": "32",
+      "channel": "joint",
+      "mae": "0.6942448262815122",
+      "rmse": "1.2189615258464106",
+      "run_id": "hpv1__chengdu_t5_joint__ref__seed42__r01"
+    },
+    {
+      "parameter": "s0.gate_hidden_dim",
+      "value": "64",
+      "channel": "joint",
+      "mae": "0.6936248651257267",
+      "rmse": "1.2195500312028107",
+      "run_id": "hpv1__chengdu_t5_joint__gwidth_64__seed42__r01"
+    },
+    {
+      "parameter": "s0.gate_hidden_dim",
+      "value": "128",
+      "channel": "joint",
+      "mae": "0.694286271377846",
+      "rmse": "1.2181378073162503",
+      "run_id": "hpv1__chengdu_t5_joint__gwidth_128__seed42__r01"
+    },
+    {
+      "parameter": "bgst.dim",
+      "value": "8",
+      "channel": "joint",
+      "mae": "0.6942224325957121",
+      "rmse": "1.2181144290500217",
+      "run_id": "hpv1__chengdu_t5_joint__bdim_8__seed42__r01"
+    },
+    {
+      "parameter": "bgst.dim",
+      "value": "16",
+      "channel": "joint",
+      "mae": "0.694167830325939",
+      "rmse": "1.2169702759495489",
+      "run_id": "hpv1__chengdu_t5_joint__bdim_16__seed42__r01"
+    },
+    {
+      "parameter": "bgst.dim",
+      "value": "32",
+      "channel": "joint",
+      "mae": "0.6942448262815122",
+      "rmse": "1.2189615258464106",
+      "run_id": "hpv1__chengdu_t5_joint__ref__seed42__r01"
+    },
+    {
+      "parameter": "bgst.dim",
+      "value": "64",
+      "channel": "joint",
+      "mae": "0.6935348113377889",
+      "rmse": "1.2176719374126859",
+      "run_id": "hpv1__chengdu_t5_joint__bdim_64__seed42__r01"
+    },
+    {
+      "parameter": "bgst.dim",
+      "value": "128",
+      "channel": "joint",
+      "mae": "0.6942581291551944",
+      "rmse": "1.217623891653838",
+      "run_id": "hpv1__chengdu_t5_joint__bdim_128__seed42__r01"
+    },
+    {
+      "parameter": "s0.alpha_init",
+      "value": "0",
+      "channel": "joint",
+      "mae": "0.6942448262815122",
+      "rmse": "1.2189615258464106",
+      "run_id": "hpv1__chengdu_t5_joint__ref__seed42__r01"
+    },
+    {
+      "parameter": "s0.alpha_init",
+      "value": "0.001",
+      "channel": "joint",
+      "mae": "0.6942051384184096",
+      "rmse": "1.2187597972375375",
+      "run_id": "hpv1__chengdu_t5_joint__ainit_0.001__seed42__r01"
+    },
+    {
+      "parameter": "s0.alpha_init",
+      "value": "0.01",
+      "channel": "joint",
+      "mae": "0.6936456539012767",
+      "rmse": "1.2176204610753942",
+      "run_id": "hpv1__chengdu_t5_joint__ainit_0.01__seed42__r01"
+    },
+    {
+      "parameter": "s0.alpha_init",
+      "value": "0.05",
+      "channel": "joint",
+      "mae": "0.6941411605587712",
+      "rmse": "1.2169916762246027",
+      "run_id": "hpv1__chengdu_t5_joint__ainit_0.05__seed42__r01"
+    },
+    {
+      "parameter": "s0.alpha_init",
+      "value": "0.1",
+      "channel": "joint",
+      "mae": "0.6932238980575844",
+      "rmse": "1.2187342555434615",
+      "run_id": "hpv1__chengdu_t5_joint__ainit_0.1__seed42__r01"
+    },
+    {
+      "parameter": "bgst.beta_init",
+      "value": "0",
+      "channel": "joint",
+      "mae": "0.6942448262815122",
+      "rmse": "1.2189615258464106",
+      "run_id": "hpv1__chengdu_t5_joint__ref__seed42__r01"
+    },
+    {
+      "parameter": "bgst.beta_init",
+      "value": "0.001",
+      "channel": "joint",
+      "mae": "0.6936191806086788",
+      "rmse": "1.2169395861802277",
+      "run_id": "hpv1__chengdu_t5_joint__binit_0.001__seed42__r01"
+    },
+    {
+      "parameter": "bgst.beta_init",
+      "value": "0.01",
+      "channel": "joint",
+      "mae": "0.6939635872840881",
+      "rmse": "1.2211661162199798",
+      "run_id": "hpv1__chengdu_t5_joint__binit_0.01__seed42__r01"
+    },
+    {
+      "parameter": "bgst.beta_init",
+      "value": "0.05",
+      "channel": "joint",
+      "mae": "0.6934324436717563",
+      "rmse": "1.218141586692245",
+      "run_id": "hpv1__chengdu_t5_joint__binit_0.05__seed42__r01"
+    },
+    {
+      "parameter": "bgst.beta_init",
+      "value": "0.1",
+      "channel": "joint",
+      "mae": "0.6932781206236945",
+      "rmse": "1.218602149574845",
+      "run_id": "hpv1__chengdu_t5_joint__binit_0.1__seed42__r01"
+    }
+  ]
+}

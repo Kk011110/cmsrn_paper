@@ -1,0 +1,10 @@
+{
+  "input_archive_sha256": "015d4b81935bb0e8eea8b8056a4725fbf826782763d88a4568f3654c37a9134f",
+  "reference_pdf": {
+    "path": "C:/Users/13594/Desktop/prism.pdf",
+    "sha256": "765ce3551915da590bd5563302bcdf7d8e4472e4b6b06a921d73327ea426fbe8",
+    "discussion_style_locations": "Section 5.5 (PDF pp.19-22), Section 5.6 (PDF pp.21-23), Section 6 Conclusion (PDF pp.23-24); no standalone Discussion heading"
+  },
+  "architecture_sha256": "562b9b6cf06d7e676c94dc585e5587514fac00f58be5ee18c9fd106d0d82c94f",
+  "author_outline_sha256": "8838e9f7c3b874318be09d5d07ab03aea6a54c1a381b5ead18ad8ce80bbaa9da"
+}

@@ -1,0 +1,224 @@
+{
+  "cases": {
+    "chengdu": {
+      "target_timestamp": "2016-11-25T09:50:00+08:00",
+      "forecast_origin": "2016-11-25T09:20:00+08:00",
+      "horizon_step": 6,
+      "horizon_minutes": 30,
+      "bin_minutes": 5,
+      "grid": [
+        32,
+        32
+      ],
+      "mae_all_1024_cells": 1.5670536921243183,
+      "spatial_pearson_r": 0.8826253816469927,
+      "wmape_all_cells": 0.885087137746995,
+      "ground_truth_total": 1813.0,
+      "prediction_total": 2908.0653831362724,
+      "ground_truth_min_max": [
+        0.0,
+        24.0
+      ],
+      "prediction_min_max": [
+        2.0036051273345947,
+        17.523600101470947
+      ],
+      "error_min_max": [
+        8.916854858398438e-05,
+        8.479682207107544
+      ],
+      "flow_color_range": [
+        0.0,
+        24.0
+      ],
+      "error_color_range": [
+        0.0,
+        10.0
+      ],
+      "normalization": "linear",
+      "clipped_cells": 0,
+      "retained_cells": 1024,
+      "npz_csv_grid_mapping_checks": "passed",
+      "matches_original_full_h6_array": true,
+      "checkpoint_epoch_reported_in_input": 118,
+      "checkpoint_sha256_reported_in_input": "5d6efd31d5935e793c3f30b190e36d3e6d9bbd30f600ebc4d88afbfde01827b8",
+      "checkpoint_reexecuted": false,
+      "post_hoc_selection": true,
+      "input_snapshot_sha256": "3d8d3c38539fbc004db2892648dc52bf90dc82de855e5c75192a7d9206fd005b"
+    },
+    "shanghai": {
+      "target_timestamp": "2016-08-25T20:20:00+08:00",
+      "forecast_origin": "2016-08-25T19:50:00+08:00",
+      "horizon_step": 6,
+      "horizon_minutes": 30,
+      "bin_minutes": 5,
+      "grid": [
+        32,
+        32
+      ],
+      "mae_all_1024_cells": 1.5708325917948969,
+      "spatial_pearson_r": 0.8579755250204869,
+      "wmape_all_cells": 0.7464188278412874,
+      "ground_truth_total": 2155.0,
+      "prediction_total": 3118.90580111742,
+      "ground_truth_min_max": [
+        0.0,
+        23.0
+      ],
+      "prediction_min_max": [
+        1.993224024772644,
+        23.973337173461914
+      ],
+      "error_min_max": [
+        4.756450653076172e-05,
+        9.378342151641846
+      ],
+      "flow_color_range": [
+        0.0,
+        24.0
+      ],
+      "error_color_range": [
+        0.0,
+        10.0
+      ],
+      "normalization": "linear",
+      "clipped_cells": 0,
+      "retained_cells": 1024,
+      "npz_csv_grid_mapping_checks": "passed",
+      "matches_original_full_h6_array": true,
+      "checkpoint_epoch_reported_in_input": 116,
+      "checkpoint_sha256_reported_in_input": "396fa24fd02055eba3b3ed38e10398a7d028f179768bd7cb4668a108bda78276",
+      "checkpoint_reexecuted": false,
+      "post_hoc_selection": true,
+      "input_snapshot_sha256": "03dcfa7f13fce203f90b7417b2c3f25b2d83672dd05227a65e3df1c86a5640c7"
+    }
+  },
+  "style": {
+    "font": "Times New Roman; glyph outlines recovered from the supplied PRISM PDF; fonts embedded only in output PDFs.",
+    "font_sizes_pt": {
+      "panel": 6.661059856414795,
+      "city": 7.612639904022217,
+      "mae": 5.233689785003662,
+      "tick": 4.757899761199951
+    },
+    "square_side_mm": 22.008338000000002,
+    "panel_gap_mm": 1.3205001388888886,
+    "combined_page_mm": [
+      86.07777777777777,
+      55.31555555555556
+    ],
+    "standalone_page_mm": [
+      96.83749999999999,
+      27.234444444444442
+    ],
+    "colormaps": "Color ramps sampled from the supplied PRISM Fig.10 color bars.",
+    "normalization": "linear, per curated package policy; shared across both cities",
+    "flow_limits": [
+      0.0,
+      24.0
+    ],
+    "error_limits": [
+      0.0,
+      10.0
+    ],
+    "mae_display_decimals": 4,
+    "png_dpi": 600,
+    "vector_pdf": true,
+    "svg_text": "outlines for appearance portability; not live editable font text"
+  },
+  "source_archive_integrity": {
+    "source_zip_sha256": "c18ab10f9878e86bb9c8913d85ec7ca1dacd3e2144d410bee0da2cd92e0f1470",
+    "manifest_entries_checked": 69,
+    "mismatches": [],
+    "status": "passed"
+  },
+  "reference_pdf": {
+    "name": "prism(6).pdf",
+    "page": 21,
+    "figure": 10,
+    "sha256": "765ce3551915da590bd5563302bcdf7d8e4472e4b6b06a921d73327ea426fbe8"
+  },
+  "pdf_preflight": [
+    {
+      "file": "CMSRN_Chengdu_H6.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        274.5,
+        77.19999694824219
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "file": "CMSRN_Chengdu_H6_with_caption.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        274.5,
+        161.92999267578125
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "STIXGeneral-Bold",
+        "STIXGeneral-Italic",
+        "STIXGeneral-Regular",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "file": "CMSRN_Chengdu_Shanghai_H6.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        244.0,
+        156.8000030517578
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "file": "CMSRN_Chengdu_Shanghai_H6_with_caption.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        244.0,
+        253.48500061035156
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "STIXGeneral-Bold",
+        "STIXGeneral-Italic",
+        "STIXGeneral-Regular",
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "file": "CMSRN_Shanghai_H6.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        274.5,
+        77.19999694824219
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "TimesNewRomanPSMT"
+      ]
+    },
+    {
+      "file": "CMSRN_Shanghai_H6_with_caption.pdf",
+      "pages": 1,
+      "dimensions_pt": [
+        274.5,
+        161.92999267578125
+      ],
+      "text_bounds_check": "passed",
+      "actual_font_names": [
+        "STIXGeneral-Bold",
+        "STIXGeneral-Italic",
+        "STIXGeneral-Regular",
+        "TimesNewRomanPSMT"
+      ]
+    }
+  ]
+}

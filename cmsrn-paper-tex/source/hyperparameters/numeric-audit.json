@@ -1,0 +1,1025 @@
+{
+  "source": "C:\\Users\\13594\\Desktop\\交通流预测论文图表\\超参数实验结果\\chengdu_hyperparameter_values.csv",
+  "rows": 60,
+  "distinct_runs": 17,
+  "seeds": [
+    "42"
+  ],
+  "best_epochs": [
+    118,
+    120
+  ],
+  "groups": {
+    "GWIDTH": {
+      "parameter": "s0.gate_hidden_dim",
+      "values": [
+        8.0,
+        16.0,
+        32.0,
+        64.0,
+        128.0
+      ],
+      "reference_value": 32.0,
+      "channels": {
+        "joint": {
+          "mae": {
+            "min": 0.6936248651257267,
+            "max": 0.6943492911480091,
+            "best_values": [
+              64.0
+            ],
+            "reference": 0.6942448262815122,
+            "span_over_min_percent": 0.10444060740975436,
+            "span_over_reference_percent": 0.10434734186821984,
+            "best_reduction_vs_reference_percent": 0.08930007575368688,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.694087545077006,
+                "relative_to_reference_percent": -0.022655005633765036
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.6943492911480091,
+                "relative_to_reference_percent": 0.015047266114532942
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6942448262815122,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.6936248651257267,
+                "relative_to_reference_percent": -0.08930007575368688
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.694286271377846,
+                "relative_to_reference_percent": 0.005969809894852984
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2181378073162503,
+            "max": 1.2212096276106659,
+            "best_values": [
+              128.0
+            ],
+            "reference": 1.2189615258464106,
+            "span_over_min_percent": 0.2521734631308468,
+            "span_over_reference_percent": 0.25200305582102517,
+            "best_reduction_vs_reference_percent": 0.06757543307926082,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2193625503116183,
+                "relative_to_reference_percent": 0.0328988615887014
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.2212096276106659,
+                "relative_to_reference_percent": 0.18442762274176436
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2189615258464106,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2195500312028107,
+                "relative_to_reference_percent": 0.048279239657826975
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.2181378073162503,
+                "relative_to_reference_percent": -0.06757543307926082
+              }
+            ]
+          }
+        },
+        "inflow": {
+          "mae": {
+            "min": 0.6921729180547926,
+            "max": 0.6936353599583661,
+            "best_values": [
+              64.0
+            ],
+            "reference": 0.6927584255183185,
+            "span_over_min_percent": 0.2112827395332603,
+            "span_over_reference_percent": 0.21110416700876397,
+            "best_reduction_vs_reference_percent": 0.08451827389724494,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.6931377185715569,
+                "relative_to_reference_percent": 0.0547511281374437
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.6936353599583661,
+                "relative_to_reference_percent": 0.12658589311151905
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6927584255183185,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.6921729180547926,
+                "relative_to_reference_percent": -0.08451827389724494
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.6927689004827429,
+                "relative_to_reference_percent": 0.0015120659725754244
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2307748529646132,
+            "max": 1.235782989749202,
+            "best_values": [
+              128.0
+            ],
+            "reference": 1.2320341931449041,
+            "span_over_min_percent": 0.40690925497263813,
+            "span_over_reference_percent": 0.40649332725133747,
+            "best_reduction_vs_reference_percent": 0.1022163335480439,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2339452770021226,
+                "relative_to_reference_percent": 0.15511613783544795
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.235782989749202,
+                "relative_to_reference_percent": 0.30427699370329353
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2320341931449041,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2314600856215865,
+                "relative_to_reference_percent": -0.046598343334301795
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.2307748529646132,
+                "relative_to_reference_percent": -0.1022163335480439
+              }
+            ]
+          }
+        },
+        "outflow": {
+          "mae": {
+            "min": 0.6950373671672962,
+            "max": 0.6958036400653698,
+            "best_values": [
+              8.0
+            ],
+            "reference": 0.6957312314598648,
+            "span_over_min_percent": 0.11024916562350438,
+            "span_over_reference_percent": 0.11013921230266364,
+            "best_reduction_vs_reference_percent": 0.09973165803015938,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.6950373671672962,
+                "relative_to_reference_percent": -0.09973165803015938
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.6950632201300727,
+                "relative_to_reference_percent": -0.09601571692999993
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6957312314598648,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.695076812196661,
+                "relative_to_reference_percent": -0.09406207937951637
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.6958036400653698,
+                "relative_to_reference_percent": 0.010407554272504274
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2047798368665907,
+            "max": 1.2076399591233995,
+            "best_values": [
+              8.0
+            ],
+            "reference": 1.2058888364721227,
+            "span_over_min_percent": 0.23739791863112597,
+            "span_over_reference_percent": 0.2371795948601835,
+            "best_reduction_vs_reference_percent": 0.09196532648701157,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2047798368665907,
+                "relative_to_reference_percent": -0.09196532648701157
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.2066362698872883,
+                "relative_to_reference_percent": 0.06198194995752969
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2058888364721227,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2076399591233995,
+                "relative_to_reference_percent": 0.14521426837317192
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.2055007572527285,
+                "relative_to_reference_percent": -0.0321820061399318
+              }
+            ]
+          }
+        }
+      }
+    },
+    "BDIM": {
+      "parameter": "bgst.dim",
+      "values": [
+        8.0,
+        16.0,
+        32.0,
+        64.0,
+        128.0
+      ],
+      "reference_value": 32.0,
+      "channels": {
+        "joint": {
+          "mae": {
+            "min": 0.6935348113377889,
+            "max": 0.6942581291551944,
+            "best_values": [
+              64.0
+            ],
+            "reference": 0.6942448262815122,
+            "span_over_min_percent": 0.10429437795778176,
+            "span_over_reference_percent": 0.10418771448101813,
+            "best_reduction_vs_reference_percent": 0.10227154986897091,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.6942224325957121,
+                "relative_to_reference_percent": -0.003225617959586609
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.694167830325939,
+                "relative_to_reference_percent": -0.01109060559883508
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6942448262815122,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.6935348113377889,
+                "relative_to_reference_percent": -0.10227154986897091
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.6942581291551944,
+                "relative_to_reference_percent": 0.0019161646120472117
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2169702759495489,
+            "max": 1.2189615258464106,
+            "best_values": [
+              16.0
+            ],
+            "reference": 1.2189615258464106,
+            "span_over_min_percent": 0.16362354415830235,
+            "span_over_reference_percent": 0.16335625486448882,
+            "best_reduction_vs_reference_percent": 0.16335625486448882,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2181144290500217,
+                "relative_to_reference_percent": -0.06949331692817357
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.2169702759495489,
+                "relative_to_reference_percent": -0.16335625486448882
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2189615258464106,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2176719374126859,
+                "relative_to_reference_percent": -0.10579402273006763
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.217623891653838,
+                "relative_to_reference_percent": -0.10973555474967003
+              }
+            ]
+          }
+        },
+        "inflow": {
+          "mae": {
+            "min": 0.6918054355515374,
+            "max": 0.6927584255183185,
+            "best_values": [
+              64.0
+            ],
+            "reference": 0.6927584255183185,
+            "span_over_min_percent": 0.13775404438984992,
+            "span_over_reference_percent": 0.13756454366730175,
+            "best_reduction_vs_reference_percent": 0.13756454366730175,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.6922567839975711,
+                "relative_to_reference_percent": -0.0724121861631724
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.6925759823233993,
+                "relative_to_reference_percent": -0.02633575979716304
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6927584255183185,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.6918054355515374,
+                "relative_to_reference_percent": -0.13756454366730175
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.692404877256464,
+                "relative_to_reference_percent": -0.05103485556164622
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2286215579068218,
+            "max": 1.2321577160446733,
+            "best_values": [
+              16.0
+            ],
+            "reference": 1.2320341931449041,
+            "span_over_min_percent": 0.2878150814703224,
+            "span_over_reference_percent": 0.28701785693342063,
+            "best_reduction_vs_reference_percent": 0.2769919257980331,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2321577160446733,
+                "relative_to_reference_percent": 0.0100259311353875
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.2286215579068218,
+                "relative_to_reference_percent": -0.2769919257980331
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2320341931449041,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2320690464090418,
+                "relative_to_reference_percent": 0.002828920198122969
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.230595001467952,
+                "relative_to_reference_percent": -0.11681426416245476
+              }
+            ]
+          }
+        },
+        "outflow": {
+          "mae": {
+            "min": 0.6952641937467787,
+            "max": 0.6961880679483767,
+            "best_values": [
+              64.0
+            ],
+            "reference": 0.6957312314598648,
+            "span_over_min_percent": 0.13288102708399943,
+            "span_over_reference_percent": 0.13279182532303835,
+            "best_reduction_vs_reference_percent": 0.06712904236109976,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 0.6961880679483767,
+                "relative_to_reference_percent": 0.06566278296193857
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 0.6957596827436376,
+                "relative_to_reference_percent": 0.00408940730073647
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 0.6957312314598648,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 0.6952641937467787,
+                "relative_to_reference_percent": -0.06712904236109976
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 0.6961113700160274,
+                "relative_to_reference_percent": 0.05463870802018461
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2032748372466475,
+            "max": 1.2058888364721227,
+            "best_values": [
+              64.0
+            ],
+            "reference": 1.2058888364721227,
+            "span_over_min_percent": 0.2172404129597376,
+            "span_over_reference_percent": 0.21676950199842546,
+            "best_reduction_vs_reference_percent": 0.21676950199842546,
+            "values": [
+              {
+                "parameter_value": 8.0,
+                "metric": 1.2040711376402113,
+                "relative_to_reference_percent": -0.15073519025428248
+              },
+              {
+                "parameter_value": 16.0,
+                "metric": 1.2053189675013225,
+                "relative_to_reference_percent": -0.047257172764566084
+              },
+              {
+                "parameter_value": 32.0,
+                "metric": 1.2058888364721227,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 64.0,
+                "metric": 1.2032748372466475,
+                "relative_to_reference_percent": -0.21676950199842546
+              },
+              {
+                "parameter_value": 128.0,
+                "metric": 1.2046527685942474,
+                "relative_to_reference_percent": -0.10250263875827084
+              }
+            ]
+          }
+        }
+      }
+    },
+    "AINIT": {
+      "parameter": "s0.alpha_init",
+      "values": [
+        0.0,
+        0.001,
+        0.01,
+        0.05,
+        0.1
+      ],
+      "reference_value": 0.0,
+      "channels": {
+        "joint": {
+          "mae": {
+            "min": 0.6932238980575844,
+            "max": 0.6942448262815122,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6942448262815122,
+            "span_over_min_percent": 0.14727250846204032,
+            "span_over_reference_percent": 0.14705593549699156,
+            "best_reduction_vs_reference_percent": 0.14705593549699156,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6942448262815122,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6942051384184096,
+                "relative_to_reference_percent": -0.005716695551794673
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6936456539012767,
+                "relative_to_reference_percent": -0.0863056313209707
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.6941411605587712,
+                "relative_to_reference_percent": -0.014932156325349824
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6932238980575844,
+                "relative_to_reference_percent": -0.14705593549699156
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2169916762246027,
+            "max": 1.2189615258464106,
+            "best_values": [
+              0.05
+            ],
+            "reference": 1.2189615258464106,
+            "span_over_min_percent": 0.16186220993054348,
+            "span_over_reference_percent": 0.16160063956408316,
+            "best_reduction_vs_reference_percent": 0.16160063956408316,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2189615258464106,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2187597972375375,
+                "relative_to_reference_percent": -0.016549218707543403
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.2176204610753942,
+                "relative_to_reference_percent": -0.11001698926347732
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.2169916762246027,
+                "relative_to_reference_percent": -0.16160063956408316
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.2187342555434615,
+                "relative_to_reference_percent": -0.01864458378137096
+              }
+            ]
+          }
+        },
+        "inflow": {
+          "mae": {
+            "min": 0.6915046241548326,
+            "max": 0.6927584255183185,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6927584255183185,
+            "span_over_min_percent": 0.1813149644542531,
+            "span_over_reference_percent": 0.1809868082871404,
+            "best_reduction_vs_reference_percent": 0.1809868082871404,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6927584255183185,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6925539639261034,
+                "relative_to_reference_percent": -0.029514125658179076
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6917490186514678,
+                "relative_to_reference_percent": -0.1457083493564816
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.6925238856562862,
+                "relative_to_reference_percent": -0.033855937855505024
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6915046241548326,
+                "relative_to_reference_percent": -0.1809868082871404
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2300912936528523,
+            "max": 1.2323051072933056,
+            "best_values": [
+              0.01
+            ],
+            "reference": 1.2320341931449041,
+            "span_over_min_percent": 0.17997149088659609,
+            "span_over_reference_percent": 0.17968767853774006,
+            "best_reduction_vs_reference_percent": 0.15769850405631802,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2320341931449041,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2323051072933056,
+                "relative_to_reference_percent": 0.021989174481422045
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.2300912936528523,
+                "relative_to_reference_percent": -0.15769850405631802
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.2314244243833754,
+                "relative_to_reference_percent": -0.049492844023446864
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.2305915532288727,
+                "relative_to_reference_percent": -0.11709414593023121
+              }
+            ]
+          }
+        },
+        "outflow": {
+          "mae": {
+            "min": 0.6949431741679156,
+            "max": 0.6958563107031362,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6957312314598648,
+            "span_over_min_percent": 0.13139729537079964,
+            "span_over_reference_percent": 0.13124846117725325,
+            "best_reduction_vs_reference_percent": 0.11327036308196221,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6957312314598648,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6958563107031362,
+                "relative_to_reference_percent": 0.01797809809529105
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6955422847359268,
+                "relative_to_reference_percent": -0.02715800518851484
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.6957584464991534,
+                "relative_to_reference_percent": 0.003911717349743157
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6949431741679156,
+                "relative_to_reference_percent": -0.11327036308196221
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2025589368961476,
+            "max": 1.206876975518686,
+            "best_values": [
+              0.05
+            ],
+            "reference": 1.2058888364721227,
+            "span_over_min_percent": 0.35907085216823986,
+            "span_over_reference_percent": 0.3580793263806075,
+            "best_reduction_vs_reference_percent": 0.2761365289454822,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2058888364721227,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2052144827666107,
+                "relative_to_reference_percent": -0.0559217139354987
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.205149602006983,
+                "relative_to_reference_percent": -0.061302040684152424
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.2025589368961476,
+                "relative_to_reference_percent": -0.2761365289454822
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.206876975518686,
+                "relative_to_reference_percent": 0.08194279743512532
+              }
+            ]
+          }
+        }
+      }
+    },
+    "BINIT": {
+      "parameter": "bgst.beta_init",
+      "values": [
+        0.0,
+        0.001,
+        0.01,
+        0.05,
+        0.1
+      ],
+      "reference_value": 0.0,
+      "channels": {
+        "joint": {
+          "mae": {
+            "min": 0.6932781206236945,
+            "max": 0.6942448262815122,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6942448262815122,
+            "span_over_min_percent": 0.13943980475656256,
+            "span_over_reference_percent": 0.13924564090675015,
+            "best_reduction_vs_reference_percent": 0.13924564090675015,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6942448262815122,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6936191806086788,
+                "relative_to_reference_percent": -0.09011888157445375
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6939635872840881,
+                "relative_to_reference_percent": -0.04051006025214633
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.6934324436717563,
+                "relative_to_reference_percent": -0.11701673228263951
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6932781206236945,
+                "relative_to_reference_percent": -0.13924564090675015
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2169395861802277,
+            "max": 1.2211661162199798,
+            "best_values": [
+              0.001
+            ],
+            "reference": 1.2189615258464106,
+            "span_over_min_percent": 0.34730812340639944,
+            "span_over_reference_percent": 0.34673202969366695,
+            "best_reduction_vs_reference_percent": 0.1658739528123285,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2189615258464106,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2169395861802277,
+                "relative_to_reference_percent": -0.1658739528123285
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.2211661162199798,
+                "relative_to_reference_percent": 0.18085807688133845
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.218141586692245,
+                "relative_to_reference_percent": -0.06726538424552249
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.218602149574845,
+                "relative_to_reference_percent": -0.029482166905648727
+              }
+            ]
+          }
+        },
+        "inflow": {
+          "mae": {
+            "min": 0.6917049023840163,
+            "max": 0.6927584255183185,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6927584255183185,
+            "span_over_min_percent": 0.15230817804979108,
+            "span_over_reference_percent": 0.1520765530226414,
+            "best_reduction_vs_reference_percent": 0.1520765530226414,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6927584255183185,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6921507539572539,
+                "relative_to_reference_percent": -0.08771767165587385
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6922670779404817,
+                "relative_to_reference_percent": -0.0709262507300622
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.691839666278274,
+                "relative_to_reference_percent": -0.13262332238789654
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6917049023840163,
+                "relative_to_reference_percent": -0.1520765530226414
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2303048019055967,
+            "max": 1.2340046476434778,
+            "best_values": [
+              0.001
+            ],
+            "reference": 1.2320341931449041,
+            "span_over_min_percent": 0.3007259446724549,
+            "span_over_reference_percent": 0.30030381936372336,
+            "best_reduction_vs_reference_percent": 0.14036876970865753,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2320341931449041,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2303048019055967,
+                "relative_to_reference_percent": -0.14036876970865753
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.2340046476434778,
+                "relative_to_reference_percent": 0.15993504965506586
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.231356355879042,
+                "relative_to_reference_percent": -0.05501773162090418
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.2307140473966245,
+                "relative_to_reference_percent": -0.10715171345284148
+              }
+            ]
+          }
+        },
+        "outflow": {
+          "mae": {
+            "min": 0.6948513388633728,
+            "max": 0.6957312314598648,
+            "best_values": [
+              0.1
+            ],
+            "reference": 0.6957312314598648,
+            "span_over_min_percent": 0.1266303376390309,
+            "span_over_reference_percent": 0.12647018801293738,
+            "best_reduction_vs_reference_percent": 0.12647018801293738,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 0.6957312314598648,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 0.6950876138828419,
+                "relative_to_reference_percent": -0.0925095134327089
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 0.6956601010428535,
+                "relative_to_reference_percent": -0.010223835555303522
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 0.6950252254803976,
+                "relative_to_reference_percent": -0.1014768271917037
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 0.6948513388633728,
+                "relative_to_reference_percent": -0.12647018801293738
+              }
+            ]
+          },
+          "rmse": {
+            "min": 1.2035743527942233,
+            "max": 1.2083275671358462,
+            "best_values": [
+              0.001
+            ],
+            "reference": 1.2058888364721227,
+            "span_over_min_percent": 0.3949248611511054,
+            "span_over_reference_percent": 0.39416687491100966,
+            "best_reduction_vs_reference_percent": 0.1919317608636758,
+            "values": [
+              {
+                "parameter_value": 0.0,
+                "metric": 1.2058888364721227,
+                "relative_to_reference_percent": 0.0
+              },
+              {
+                "parameter_value": 0.001,
+                "metric": 1.2035743527942233,
+                "relative_to_reference_percent": -0.1919317608636758
+              },
+              {
+                "parameter_value": 0.01,
+                "metric": 1.2083275671358462,
+                "relative_to_reference_percent": 0.2022351140473339
+              },
+              {
+                "parameter_value": 0.05,
+                "metric": 1.2049268219206068,
+                "relative_to_reference_percent": -0.07977638754251284
+              },
+              {
+                "parameter_value": 0.1,
+                "metric": 1.2064902429227475,
+                "relative_to_reference_percent": 0.049872461908199224
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "joint_arithmetic_mean_max_absolute_difference": 1.3245476715439963e-08,
+  "all_best_flags_correct": true,
+  "reference_run_ids": [
+    "hpv1__chengdu_t5_joint__ref__seed42__r01"
+  ],
+  "reference_metrics": {
+    "joint": {
+      "mae": 0.6942448262815122,
+      "rmse": 1.2189615258464106
+    },
+    "inflow": {
+      "mae": 0.6927584255183185,
+      "rmse": 1.2320341931449041
+    },
+    "outflow": {
+      "mae": 0.6957312314598648,
+      "rmse": 1.2058888364721227
+    }
+  },
+  "pdf_six_decimal_labels_match_csv": {
+    "flow": true,
+    "joint": true
+  }
+}
