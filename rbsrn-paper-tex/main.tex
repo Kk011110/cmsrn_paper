@@ -1,0 +1,24 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass[UTF8,a4paper,zihao=-4,fontset=fandol]{ctexart}
+\input{preamble}
+\input{frontmatter-metadata}
+\newcommand{\frontmatterrevisionstyle}{}
+
+\begin{document}
+\input{sections/00-frontmatter}
+
+\captionsetup[figure]{name=Figure}
+\input{sections/01-introduction}
+\input{sections/02-related-work}
+\captionsetup[table]{name=Table}
+\input{sections/03-problem-definition}
+\input{sections/04-methodology}
+\input{sections/05-experiments}
+\FloatBarrier
+\input{sections/06-conclusion}
+
+\FloatBarrier
+\input{references}
+\end{document}

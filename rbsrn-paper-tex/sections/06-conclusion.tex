@@ -1,0 +1,14 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = none
+
+\begingroup
+\conclusionrevisionstyle
+\section{Conclusion}\label{sec:conclusion}
+
+We present RBSRN, a role-aware and background-conditioned spatiotemporal residual network for short-term, multi-step regional inflow and outflow forecasting. It refines a shared base prediction through state-conditioned expert correction and background-conditioned historical message selection. In experiments over forecast horizons of 5--60 minutes in Chengdu and Shanghai, we compared RBSRN with 13 baseline methods under positive-target evaluation. RBSRN achieved the lowest AVG12 MAE and RMSE across all four city--channel tasks. Its MAE was 0.43\%--2.00\% lower than that of the strongest baseline method for each task.
+
+Ablation experiments and fixed-model diagnostics supported complementary roles for SERR and BCMS. In H6 diagnostics on high-deviation samples, self-evolution correction provided larger absolute MAE benefits for rapidly changing histories than for slowly changing histories. The effects of directed time-lagged correction varied across cities. BCMS provided larger mean benefits when the history-derived proxy for background discrepancy was smaller, and these benefits extended beyond high-deviation scenarios. RBSRN did not outperform the strongest baseline methods in every deviation group, indicating that its advantages depended on the traffic state.
+
+The empirical evaluation is limited to one month of data from each city. Future work should evaluate temporal generalization across months and seasons, assess the benefits and computational costs of dynamically updating candidate relations, and compare all methods under both positive-target and all-grid evaluation. These extensions would clarify the robustness and practical applicability of the proposed correction mechanisms.
+\endgroup

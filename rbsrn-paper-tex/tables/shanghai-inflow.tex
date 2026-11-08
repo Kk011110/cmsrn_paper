@@ -1,0 +1,35 @@
+% !TeX root = ../main.tex
+% !TeX spellcheck = none
+\begin{table}[!htbp]
+\centering
+\caption{Inflow forecasting results for Shanghai (\(32\times32\) grid)}
+\label{tab:shanghai-inflow}
+\begingroup
+\linespread{1}\fontsize{10}{12}\selectfont
+\setlength{\tabcolsep}{4.5pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}l*{8}{r}@{}}
+\toprule
+& \multicolumn{2}{c}{H3} & \multicolumn{2}{c}{H6} & \multicolumn{2}{c}{H12} & \multicolumn{2}{c}{AVG12} \\
+\cmidrule(l{4.5pt}r{4.5pt}){2-3}\cmidrule(l{4.5pt}r{4.5pt}){4-5}\cmidrule(l{4.5pt}r{4.5pt}){6-7}\cmidrule(l{4.5pt}r{4.5pt}){8-9}
+Model & MAE & RMSE & MAE & RMSE & MAE & RMSE & MAE & RMSE \\
+\midrule
+HA & 1.019 & 1.437 & 1.040 & 1.490 & 1.080 & 1.593 & 1.043 & 1.498 \\
+SVR & 0.817 & 1.251 & 0.837 & 1.274 & 0.879 & 1.344 & 0.841 & 1.283 \\
+DCRNN (ICLR'18) & \underline{0.734} & \underline{1.243} & 0.748 & 1.262 & 0.808 & 1.328 & 0.758 & 1.272 \\
+STGCN (IJCAI'18) & 0.741 & 1.257 & 0.743 & 1.260 & 0.754 & 1.293 & 0.745 & 1.268 \\
+GWNet (IJCAI'19) & 0.735 & 1.268 & 0.742 & 1.288 & 0.760 & 1.343 & 0.744 & 1.295 \\
+DSTAGNN (ICML'22) & 1.010 & 1.410 & 0.950 & 1.360 & 1.009 & 1.426 & 0.994 & 1.402 \\
+PDFormer (AAAI'23) & \pdformerupdated{0.970} & \pdformerupdated{1.356} & \pdformerupdated{0.977} & \pdformerupdated{1.369} & \pdformerupdated{0.995} & \pdformerupdated{1.413} & \pdformerupdated{0.979} & \pdformerupdated{1.376} \\
+PatchTST (ICLR'23) & 0.800 & 1.333 & 0.816 & 1.382 & 0.849 & 1.480 & 0.819 & 1.392 \\
+TimeMixer (ICLR'24) & 0.821 & 1.331 & 0.836 & 1.372 & 0.868 & 1.463 & 0.839 & 1.381 \\
+STDN (AAAI'25) & 1.219 & 1.651 & 1.220 & 1.659 & 1.219 & 1.683 & 1.218 & 1.661 \\
+MetaDG (AAAI'26) & 1.082 & 1.517 & 1.168 & 1.624 & 1.421 & 1.944 & 1.201 & 1.667 \\
+HyperD (AAAI'26) & 0.737 & 1.261 & \underline{0.737} & 1.261 & \underline{0.737} & \underline{1.263} & \underline{0.737} & \underline{1.260} \\
+RAST (AAAI'26) & 0.736 & 1.245 & 0.740 & \underline{1.259} & 0.749 & 1.289 & 0.741 & 1.261 \\
+\midrule
+\textbf{RBSRN (Ours)} & \shanghaiupdated{\textbf{0.726}} & \shanghaiupdated{\textbf{1.225}} & \shanghaiupdated{\textbf{0.727}} & \shanghaiupdated{\textbf{1.229}} & \shanghaiupdated{\textbf{0.733}} & \shanghaiupdated{\textbf{1.243}} & \shanghaiupdated{\textbf{0.728}} & \shanghaiupdated{\textbf{1.231}} \\
+\bottomrule
+\end{tabular*}
+\endgroup
+\end{table}

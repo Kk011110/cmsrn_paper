@@ -1,0 +1,21 @@
+% !TeX root = ../main.tex
+\begin{table}[!htbp]
+  \centering
+  \caption{\ablationpolished{Per-channel and joint AVG12 metrics for the Chengdu ablation study}}
+  \label{tab:serr-expert-ablation}
+  \begingroup
+  \linespread{1}\fontsize{9}{11}\selectfont
+  \setlength{\tabcolsep}{3pt}
+  \renewcommand{\arraystretch}{1.08}
+  \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
+    \toprule
+    Model configuration & \shortstack{Inflow\\MAE} & \shortstack{Inflow\\RMSE} & \shortstack{Outflow\\MAE} & \shortstack{Outflow\\RMSE} & \shortstack{Joint\\MAE} & \shortstack{Joint\\RMSE} \\
+    \midrule
+    RBSRN & \ablationpolished{\textbf{0.7084}} & \ablationpolished{\textbf{1.2935}} & \ablationpolished{\textbf{0.7087}} & \ablationpolished{\textbf{1.2235}} & \ablationpolished{\textbf{0.7085}} & \ablationpolished{\textbf{1.2585}} \\
+    w/o Self-evolution expert (A1) & \ablationpolished{0.7129} & \ablationpolished{1.3037} & \ablationpolished{0.7121} & \ablationpolished{1.2270} & \ablationpolished{0.7125} & \ablationpolished{1.2653} \\
+    w/o Directed time-lagged expert (A2) & \ablationpolished{0.7105} & \ablationpolished{1.3048} & \ablationpolished{0.7099} & \ablationpolished{1.2264} & \ablationpolished{0.7102} & \ablationpolished{1.2656} \\
+    w/o BCMS (A3) & \ablationpolished{0.7109} & \ablationpolished{1.3014} & \ablationpolished{0.7102} & \ablationpolished{1.2276} & \ablationpolished{0.7105} & \ablationpolished{1.2645} \\
+    \bottomrule
+  \end{tabular*}
+  \endgroup
+\end{table}

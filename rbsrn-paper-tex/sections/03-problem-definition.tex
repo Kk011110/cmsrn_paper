@@ -1,0 +1,57 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = none
+
+\section{Problem Definition}\label{sec:problem-definition}
+
+We partition the study area into \(N\) regular grid cells and treat each cell as a forecasting node. The regional traffic flow matrix at time \(t\) is
+\begin{equation}
+\label{eq:flow}
+X_t = \bigl[x_t^{\mathrm{in}},\,x_t^{\mathrm{out}}\bigr]
+\in \mathbb{R}^{N\times 2},
+\end{equation}
+
+where \(x_t^{\mathrm{in}},x_t^{\mathrm{out}}\in\mathbb{R}^{N}\) denote the inflow and outflow at each node during the sampling interval. These quantities count trips ending and starting in the corresponding region, respectively~\cite{ref32}. We jointly forecast both flows with a single model, with channels ordered as inflow followed by outflow. Throughout this paper, sequence tensors follow the order of time, node, and flow channel, with the batch dimension omitted.
+
+Given a historical observation sequence ending at time \(t\) with length \(T\),
+\begin{equation}
+\label{eq:history}
+X_{t-T+1:t} = \bigl[X_{t-T+1},\ldots,X_t\bigr]
+\in \mathbb{R}^{T\times N\times 2},
+\end{equation}
+
+the goal is to jointly forecast inflow and outflow over the next \(H\) time steps:
+\begin{equation}
+\label{eq:future}
+Y_{t+1:t+H} = \bigl[X_{t+1},\ldots,X_{t+H}\bigr]
+\in \mathbb{R}^{H\times N\times 2}.
+\end{equation}
+
+Here, \(T\) and \(H\) denote the historical window length and the number of forecast steps, respectively. We use a 5-minute sampling interval and set \(T=H=12\), using the past 60 minutes to forecast traffic flow over the next 60 minutes.
+
+We formulate regional traffic flow forecasting as learning the spatiotemporal mapping
+\begin{equation}
+\label{eq:mapping}
+\widehat{Y}_{t+1:t+H}
+= f_{\theta}\!\left(X_{t-T+1:t},C_t;\mathcal{S},\mathcal{B}\right)
+\in \mathbb{R}^{H\times N\times 2},
+\end{equation}
+
+where \(\theta\) denotes the learnable model parameters. The temporal information \(C_t\in\mathbb{R}^{T\times 2}\) contains the time of day and day of week for the historical window and is shared across nodes. The preconstructed spatial supports \(\mathcal{S}\) include self-relations, directed time-lagged associations constructed separately for each flow channel, and candidate cross-region neighborhoods. The lookup table \(\mathcal{B}\) stores the routine-flow reference, which is constructed from training data and then fixed. Forecasts use observations up to \(t\) and their corresponding temporal information; \(\widehat{Y}_{t+1:t+H}\) denotes predictions on the original traffic flow scale.
+
+To describe the observed traffic state's deviation from routine patterns, we consider each time \(u\in\{t-T+1,\ldots,t\}\) in the historical window. We retrieve the corresponding routine-flow reference from \(\mathcal{B}\):
+\begin{equation}
+\label{eq:baseline}
+b_u=\bigl[b_u^{\mathrm{in}},\,b_u^{\mathrm{out}}\bigr]
+\in\mathbb{R}^{N\times 2}.
+\end{equation}
+
+We estimate this reference from training observations grouped by node, flow channel, weekday or weekend, and time-of-day slot. The flow deviation from this routine-flow reference is
+\begin{equation}
+\label{eq:deviation}
+D_u=X_u-b_u\in\mathbb{R}^{N\times 2}.
+\end{equation}
+
+The deviation \(D_u\) quantifies the difference between observed flow and its corresponding routine level. Section~\ref{sec:methodology} explains how historical trajectories and the routine-flow reference jointly provide evidence of trend deviation and short-term fluctuation.
+
+Within this joint inflow and outflow forecasting task, we focus on correcting predictions when traffic deviates from routine patterns. We combine recent node dynamics with cross-region time-lagged associations to adaptively allocate correction contributions from heterogeneous evidence. We also select historical messages according to source and target traffic backgrounds and the forecast horizon. Section~\ref{sec:methodology} details the corresponding residual refinement mechanism.

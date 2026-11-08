@@ -1,0 +1,20 @@
+% !TeX root = ../main.tex
+\begin{table}[!htbp]
+\centering\small
+\caption{\editorialupdated{Spatial prediction statistics at H6 across the full test set}}
+\label{tab:spatial-fulltest-h6}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llrrrrrr}
+\toprule
+City & Flow & Windows & \shortstack{All-grid\\MAE} & Spearman & \shortstack{Valid\\correlations} & IoU$_{10\%}$ & IoU$_{5\%}$ \\
+\midrule
+Chengdu & Inflow & 1,723 & 0.9366 & 0.4327 & 1,723 & 0.3420 & 0.3495 \\
+ & Outflow & 1,723 & 0.9367 & 0.4503 & 1,723 & 0.3356 & 0.3147 \\
+ & Total & 1,723 & 1.6750 & 0.5324 & 1,723 & 0.4155 & 0.4142 \\
+\midrule
+Shanghai & Inflow & 1,781 & \shanghaiupdated{0.9382} & \shanghaiupdated{0.4524} & 1,760 & \shanghaiupdated{0.3224} & \shanghaiupdated{0.3106} \\
+ & Outflow & 1,781 & \shanghaiupdated{0.9549} & \shanghaiupdated{0.4920} & 1,759 & \shanghaiupdated{0.3547} & \shanghaiupdated{0.3502} \\
+ & Total & 1,781 & \shanghaiupdated{1.6722} & \shanghaiupdated{0.5543} & 1,767 & \shanghaiupdated{0.4068} & \shanghaiupdated{0.4117} \\
+\bottomrule
+\end{tabular}
+\end{table}

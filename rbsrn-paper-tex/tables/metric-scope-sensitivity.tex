@@ -1,0 +1,20 @@
+\textbf{}% !TeX root = ../main.tex
+\begin{table}[!htbp]
+  \centering
+  \caption{Zero-target proportions in the test set and sensitivity of RBSRN to evaluation scope (AVG12)}
+  \label{tab:metric-scope-sensitivity}
+  \small
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{llrrrrr}
+    \toprule
+    City & Channel & Zero targets (\%) & \multicolumn{2}{c}{Positive targets (\(y>0\))} & \multicolumn{2}{c}{\shortstack{All grid cells\\(including zero targets)}} \\
+    \cmidrule(lr){4-5}\cmidrule(lr){6-7}
+    & & & MAE & RMSE & MAE & RMSE \\
+    \midrule
+    Chengdu & Inflow & 71.68 & 0.708421 & 1.293545 & 0.936965 & 1.117916 \\
+         & Outflow & 70.13 & 0.708654 & 1.223468 & 0.936962 & 1.105671 \\
+    Shanghai & Inflow & 64.17 & \shanghaiupdated{0.728085} & \shanghaiupdated{1.230839} & \shanghaiupdated{0.937587} & \shanghaiupdated{1.139290} \\
+         & Outflow & 64.94 & \shanghaiupdated{0.774534} & \shanghaiupdated{1.342986} & \shanghaiupdated{0.954306} & \shanghaiupdated{1.184390} \\
+    \bottomrule
+  \end{tabular}
+\end{table}

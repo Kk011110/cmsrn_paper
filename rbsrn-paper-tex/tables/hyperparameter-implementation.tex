@@ -1,0 +1,22 @@
+% !TeX root = ../main.tex
+\begin{table}[!htbp]
+  \centering
+  \caption[RBSRN computing environment and training settings]{\hpupdated{Model computing environment and training settings}}
+  \label{tab:hyperparameter-implementation}
+  \small
+  \renewcommand{\arraystretch}{1.12}
+  \begin{tabular}{@{}p{0.25\linewidth}p{0.69\linewidth}@{}}
+    \toprule
+    Item & Setting \\
+    \midrule
+    Optimizer and learning rate & Ranger; fixed at 0.001, with no learning-rate schedule \\
+    Weight decay & \(10^{-4}\); no decay for the BCMS parameter \(\beta\) \\
+    Batch size & 64 for both training and validation \\
+    Training budget and checkpoint selection & At most 200 epochs, with an early-stopping patience of 20 epochs; checkpoint selected by the lowest joint validation MAE \\
+    \midrule
+    GPU & One NVIDIA A100-SXM4-40GB, with 40 GB of GPU memory \\
+    CPU & Two Intel Xeon Gold 6138 processors @ 2.00 GHz, with 40 cores and 80 threads in total \\
+    Software environment & Python 3.11.15; PyTorch 2.7.1+cu128; CUDA 12.8 (PyTorch build version) \\
+    \bottomrule
+  \end{tabular}
+\end{table}

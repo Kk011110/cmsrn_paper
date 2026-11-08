@@ -1,0 +1,74 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+
+\subsubsection{Prediction Performance across Levels of Deviation from Routine Patterns}\label{sec:scenario-performance}\label{sec:exp-scenarios}
+
+\metricrevised{All-grid spatial statistics characterize the distribution of traffic flow at a given time. \citationupdated{To examine prediction error when recent flow deviates from routine levels}, this section groups observations by window, grid cell, and channel. At positions with positive H6 target flow, RBSRN was compared with 16 baseline methods. The Chengdu scenario analysis used the same checkpoint as the subsequent residual diagnostics. Its full-test-set H6 MAE was 0.709952 for inflow and 0.709944 for outflow; the Chengdu main tables in Section~\ref{sec:results-overall} use a different training run. \shanghaiupdated{The Shanghai scenario performance and residual diagnostics both used the epoch-115 checkpoint corresponding to the main tables.}}
+
+\metricrevised{The routine-flow reference is the median training flow for the same grid cell, channel, and 5-minute time slot, separately for weekdays and weekends. Only deduplicated training-history timestamps that pass quality checks are used. If a time slot has fewer than 4 observations for one day type, the two day types are pooled. If that slot has no observations, the training median for the grid cell and channel is used. The difference between each observation and its reference is divided by a robust scale to obtain the standardized residual \(r_k\). This scale is the median absolute deviation of training residuals multiplied by 1.4826, with a lower bound of 1 count. The deviation score \(D=\frac{1}{12}\sum_{k=1}^{12}|r_k|\) uses only the input window. For each city and channel, all grid cells are pooled from training windows whose 12 historical steps all pass quality checks. The 50th, 80th, and 95th percentiles of \(D\) define four groups (Table~\ref{tab:scenario-group-thresholds}); observations equal to a boundary enter the lower group.}
+
+\input{tables/scenario-group-thresholds}
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=\linewidth]{figures/scenarios/performance_h6_paper.pdf}
+  \caption{H6 prediction performance of RBSRN relative to each baseline method across levels of deviation from routine patterns.}
+  \label{fig:scenario-performance}
+\end{figure}
+
+\metricrevised{Figure~\ref{fig:scenario-performance} compares methods within the same groups; positive values indicate the MAE reduction of RBSRN relative to the corresponding baseline method. In the Extreme group, RBSRN achieved the lowest MAE for Chengdu inflow, Shanghai inflow, and Shanghai outflow. Its MAE was 0.36\%, \shanghaiupdated{0.16\%, and 0.07\%} lower than that of STWave, respectively. For Chengdu outflow, RBSRN ranked third, with MAE 0.60\% higher than that of STWave. In the Moderate and High groups, STWave and STNorm had lower errors than RBSRN on all four tasks.}
+
+\metricrevised{Despite its higher relative ranking in the Extreme group, RBSRN's absolute MAE increased with deviation level on all four tasks. MAE in the Extreme group was \shanghaiupdated{7.33--9.37 times} that in the Low group. For Chengdu inflow, for example, MAE increased from 0.161 to 1.340, while mean positive-target flow increased from 1.160 to 3.637 counts per 5 min. Differences in group errors therefore coincided with changes in both deviation level and flow magnitude.}
+
+\subsubsection{Effects of SERR Residual Corrections across Recent-Change Scenarios}\label{sec:scenario-serr}
+
+\scenariopolished{Within the high-deviation subset combining High and Extreme observations (\(D>D_{80}\)), recent-change intensity is defined by successive differences in historical standardized residuals:}
+\begin{equation}
+  U=\frac{1}{11}\sum_{k=2}^{12}|r_k-r_{k-1}|.
+  \label{eq:scenario-recent-change}
+\end{equation}
+\scenariopolished{The 75th percentile of \(U\) among high-deviation training samples separates the Slow and Rapid groups; samples above the threshold enter Rapid.}
+
+To examine each residual correction in the trained model, we performed a fixed-model residual-removal analysis. Model parameters, gates, and all other outputs were held fixed while a specified residual correction was subtracted from the final prediction:
+\begin{equation}
+  \Delta\mathrm{MAE}_{e}
+  =\mathrm{MAE}(\widehat Y-C_e)-\mathrm{MAE}(\widehat Y),
+  \label{eq:scenario-residual-removal}
+\end{equation}
+Here, \(C_e\) is the signed correction actually added to the prediction, including the original gating weight, learnable strength coefficient, and inverse-standardization scale. For the SERR self-evolution expert, removal subtracts the weighted difference between its prediction and the base prediction. For the directed time-lagged expert, removal subtracts the weighted time-lagged correction; BCMS removal subtracts the entire cross-region correction. Gating weights retain their original values and are not renormalized after removal. A positive difference indicates that the original residual correction reduced the group's mean MAE. Each difference measures the net effect on group-average error; the nonlinear absolute loss means that differences for separate corrections cannot be added directly. This diagnostic complements the independently retrained ablations in Section~\ref{sec:exp-ablation}. It measures the fixed model's sensitivity to existing corrections, whereas the ablations compare correction-pathway configurations after retraining.
+
+In Figure~\ref{fig:scenario-serr}, all 16 removal differences for the two experts across eight city--channel--change groups were positive. The removal cost of the self-evolution expert's residual correction in Rapid was \shanghaiupdated{1.15}--2.82 times that in Slow. This correction therefore provided larger absolute MAE benefits in the Rapid samples. The directed time-lagged expert's residual correction provided smaller positive contributions. Its removal cost was higher in Rapid than in Slow for Chengdu, but lower for Shanghai.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\linewidth]{figures/scenarios/serr_sensitivity_h6_paper.pdf}
+  \caption{\editorialupdated{H6 residual-removal sensitivity of SERR across recent-change groups in high-deviation scenarios.}}
+  \label{fig:scenario-serr}
+\end{figure}
+
+\subsubsection{Effects of BCMS Residual Corrections across Background Discrepancies and Forecast Horizons}\label{sec:scenario-bcms}
+
+\scenariopolished{Similarity between source and target traffic backgrounds is measured by a history-derived proxy for background discrepancy. Let \(\mathcal C_i\) denote the valid fixed candidate-source set for target grid cell \(i\), and \(\bar r_i\) its mean standardized residual over the 12 historical steps. Within each channel, the proxy is defined as}
+\begin{equation}
+  B_i=\frac{1}{|\mathcal C_i|}\sum_{j\in\mathcal C_i}|\bar r_i-\bar r_j|.
+  \label{eq:scenario-background-difference}
+\end{equation}
+\scenariopolished{The candidate set follows the model's fixed support. The proxy \(B_i\) describes background discrepancy in the observed history and is defined separately from the low-frequency representations learned by BCMS. Within the high-deviation subset, tertile thresholds of \(B_i\) from high-deviation training samples define Low, Medium, and High background-discrepancy groups (Table~\ref{tab:scenario-group-thresholds}).} Following Eq.~\eqref{eq:scenario-residual-removal}, the entire BCMS correction was removed separately at H1--H12 to examine its effects across background conditions and forecast horizons. \editorialupdated{Both BCMS figures show MAE changes in units of \(10^{-3}\) counts per 5 min, so each cell displays \(1000\times\Delta\mathrm{MAE}\).}
+
+Figure~\ref{fig:scenario-bcms} shows that, for every city, channel, and forecast horizon, the mean correction benefit was higher in the Low group than in the Medium group. The Medium group, in turn, had a higher benefit than the High group. Of the 144 background-group--horizon cells, 143 were positive. For Chengdu outflow, the High group at H5 had the sole negative value, approximately \(-4.8\times10^{-6}\). Benefits fluctuated across horizons within each group, without a monotonic increase with forecast horizon.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\linewidth]{figures/scenarios/bcms_sensitivity_horizons_paper.pdf}
+  \caption{\editorialupdated{Sensitivity of BCMS to background discrepancy and forecast horizon in high-deviation scenarios.}}
+  \label{fig:scenario-bcms}
+\end{figure}
+
+Figure~\ref{fig:scenario-bcms-all} extends the analysis to the full test set, retaining the background-group thresholds fitted using high-deviation training histories. Removal differences were positive in all 144 background-group--horizon cells and exceeded the corresponding values for the high-deviation subset alone. The ordering persisted: benefits were higher in the Low group than in the Medium group, and higher in the Medium group than in the High group. For Shanghai inflow at H6, the full-test-set differences in the three background groups were \shanghaiupdated{0.025547}, \shanghaiupdated{0.015634}, and \shanghaiupdated{0.009873}, respectively. The corresponding values for the high-deviation subset were \shanghaiupdated{0.013620}, \shanghaiupdated{0.009982}, and \shanghaiupdated{0.007434}. The two analysis scopes are nested; the full-test-set results indicate that the average benefit of BCMS corrections extends across a broader range of traffic conditions.
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=0.92\linewidth]{figures/scenarios/bcms_sensitivity_horizons_all_test_paper.pdf}
+  \caption{\editorialupdated{Sensitivity of BCMS to background discrepancy and forecast horizon across the full test set.}}
+  \label{fig:scenario-bcms-all}
+\end{figure}

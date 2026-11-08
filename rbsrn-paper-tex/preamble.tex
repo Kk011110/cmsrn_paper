@@ -1,0 +1,107 @@
+% !TeX root = main.tex
+% 中文字体随 TeX Live 提供，可随工程迁移，不依赖 Windows 专用字体。
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
+\setmainfont{texgyretermes-regular.otf}[
+  BoldFont=texgyretermes-bold.otf,
+  ItalicFont=texgyretermes-italic.otf,
+  BoldItalicFont=texgyretermes-bolditalic.otf]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage[font=small,labelfont=bf,labelsep=quad,
+            justification=justified,singlelinecheck=false]{caption}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[noadjust,nocompress]{cite}
+% IEEE inline numeric citations; stable first-citation numbering.
+\renewcommand{\citepunct}{], [}
+\renewcommand{\refname}{References}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={RBSRN}}
+\ctexset{
+  section={format=\Large\bfseries,number=\arabic{section},
+           beforeskip=1.2ex plus 0.5ex,afterskip=0.8ex plus 0.2ex},
+  subsection={format=\large\bfseries,beforeskip=1ex plus 0.3ex,
+              afterskip=0.6ex plus 0.2ex}
+}
+\linespread{1.2}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+\setlist[enumerate]{leftmargin=2em,label=\arabic*.,itemsep=0.25em,topsep=0.4em}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\allowdisplaybreaks[1]
+\clubpenalty=10000
+\widowpenalty=10000
+\raggedbottom
+\pagestyle{plain}
+
+% Compact, readable float placement; retain the original font size and margins.
+\DeclareCaptionFont{compact}{\linespread{1.05}\selectfont}
+\captionsetup{font={small,compact},skip=5pt}
+\setlength{\textfloatsep}{11pt plus 2pt minus 2pt}
+\setlength{\floatsep}{9pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.90}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{3}
+\setcounter{totalnumber}{6}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{10pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+\AtBeginDocument{%
+  \setlength{\abovedisplayskip}{8pt plus 2pt minus 2pt}%
+  \setlength{\belowdisplayskip}{8pt plus 2pt minus 2pt}%
+  \setlength{\abovedisplayshortskip}{3pt plus 1pt minus 1pt}%
+  \setlength{\belowdisplayshortskip}{6pt plus 1pt minus 1pt}}
+
+% Keep each figure/table inside its owning section, subsection and subsubsection.
+\AddToHook{cmd/section/before}{\FloatBarrier}
+\AddToHook{cmd/subsection/before}{\FloatBarrier}
+\AddToHook{cmd/subsubsection/before}{\FloatBarrier}
+
+% Local revision markup is visible only in main-revision-marked.tex.
+\providecommand{\revised}[1]{#1}
+
+% Final inference revision; earlier revision marks remain black.
+\providecommand{\infrevised}[1]{#1}
+
+% Original supplementary Fig. S1 promoted to main-text Fig. 7.
+\providecommand{\soneupdated}[1]{#1}
+
+% Hyperparameter prose and evidence-placement revision (2026-11-04).
+\providecommand{\hpupdated}[1]{#1}
+
+% Reference-wording revision (2026-11-04).
+\providecommand{\refupdated}[1]{#1}
+
+% Caption, note and full-reference audit (2026-11-04).
+\providecommand{\editorialupdated}[1]{#1}
+
+\providecommand{\ablationpolished}[1]{#1}
+
+\providecommand{\spatialpolished}[1]{#1}
+
+\providecommand{\scenariopolished}[1]{#1}
+
+% Baseline and metric section restructuring (2026-11-05).
+\providecommand{\metricrevised}[1]{#1}
+
+% PDFormer corrected results (2026-11-06).
+\providecommand{\pdformerupdated}[1]{#1}
+
+% Shanghai epoch115 update (2026-11-06)
+\providecommand{\shanghaiupdated}[1]{#1}
+
+% First-citation order and source-grounded reference revision (2026-11-06).
+\providecommand{\citationupdated}[1]{#1}
+\providecommand{\citationbibliographystyle}{}
+
+% Merged discussion and conclusion revision (2026-11-06).
+\providecommand{\conclusionrevisionstyle}{}

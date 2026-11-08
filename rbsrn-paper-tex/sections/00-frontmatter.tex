@@ -1,0 +1,16 @@
+% !TeX root = ../main.tex
+% !TeX encoding = UTF-8
+% English title, abstract, and keywords; single-paragraph abstract.
+\begingroup
+\maketitle
+\frontmatterrevisionstyle
+\begin{center}
+  \normalsize\bfseries Abstract
+\end{center}
+{\small\setlength{\parindent}{0pt}
+Short-term, multi-step regional traffic flow forecasting uses recent observations to estimate future inflow and outflow for traffic dispatch. When local flow deviates from routine patterns, self-evolution and cross-region historical information play different correction roles. Historical correlations alone do not establish their relevance in the current traffic context or at different forecast horizons. We propose the Role-aware and Background-conditioned Spatiotemporal Residual Network (RBSRN), which refines a base prediction through two parallel branches. The first fuses residual corrections from self-evolution and directed time-lagged experts according to the current state. The second performs Background-conditioned Cross-region Message Selection (BCMS), jointly selecting neighbor--lag--scale messages for each forecast step using source and target traffic backgrounds. We evaluated RBSRN against 13 baseline methods on four inflow and outflow forecasting tasks in Chengdu and Shanghai. RBSRN achieved the lowest mean absolute error (MAE) averaged over 12 forecast steps under positive-target evaluation. Its MAE was 0.43\%--2.00\% lower than that of the strongest baseline method for each task. Fixed-model residual-removal diagnostics showed that, among high-deviation samples, the MAE benefit of self-evolution correction at the 30-minute horizon was 1.15--2.82 times as large for rapidly changing histories as for slowly changing histories. BCMS, in turn, provided its largest mean benefit in the group with the lowest history-derived background-discrepancy proxy values at all 12 forecast steps. Together, these results support prediction correction conditioned on traffic state and background.
+\par\vspace{0.8em}
+\noindent\textbf{Keywords: }\paperkeywords
+\par}
+\endgroup
+\vspace{1em}

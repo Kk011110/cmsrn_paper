@@ -1,0 +1,33 @@
+% !TeX root = ../main.tex
+\subsection{Model Size and Inference Efficiency}\label{sec:exp-efficiency}
+
+With both the gating and BCMS dimensions set to 32, RBSRN contains approximately 7.071 million trainable parameters. We evaluated inference efficiency using the Chengdu checkpoint from the main comparison experiments. Each batch-size setting used a single NVIDIA A100-SXM4-40GB GPU with FP32 tensors; the remaining computing environment is described in Section~\ref{sec:exp-implementation}. Each window supplies 12 historical flow steps and jointly produces inflow and outflow forecasts for 1,024 nodes over the next 12 steps.
+
+For batch size 1, we used compiled BCMS operators and CUDA Graph, with 20 warm-up iterations followed by 100 timed iterations. For batch size 64, we used compiled BCMS operators, with 10 warm-up iterations followed by 30 timed iterations. CUDA synchronization was performed before and after each measurement. We report the median and 95th percentile (P95), which describe typical execution time and tail latency within these measurements, respectively.
+
+Forward-only timing includes model computation on GPU-resident inputs and excludes copying new inputs. End-to-end timing covers memory-resident data access, wavelet decomposition, normalization, state-evidence construction, CPU/GPU transfers, model inference, inverse standardization, and returning results to the CPU. It also includes input updates before CUDA Graph replay. Both measurements exclude startup preparation, offline graph construction, and cold disk reads. Startup preparation comprises initialization, compilation, graph capture, and warm-up.
+
+\begin{table}[!htbp]
+	\centering
+	\small
+	\caption{RBSRN inference time on the Chengdu dataset}
+	\label{tab:inference-latency}
+	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrrrr@{}}
+		\toprule
+		Inference setting & Batch size
+		& \multicolumn{2}{c}{\shortstack{Forward only\\ms/batch}}
+		& \multicolumn{2}{c}{\shortstack{End to end\\ms/batch}} \\
+		\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+		& & Median & P95 & Median & P95 \\
+		\midrule
+		\shortstack[l]{Single-window\\forecasting} & 1  & 15.907   & 15.930   & 19.228   & 19.507 \\
+		Batch forecasting   & 64 & 1138.819 & 1310.517 & 1280.394 & 1464.308 \\
+		\bottomrule
+	\end{tabular*}
+\end{table}
+
+Table~\ref{tab:inference-latency} reports median forward-only and end-to-end latencies of 15.907\,ms and 19.228\,ms for single-window forecasting, with an end-to-end P95 of 19.507\,ms. In this test environment, the measured computation time fit within a 5-minute update cycle. At batch size 64, the median end-to-end time was 1,280.394\,ms/batch, and the amortized forward-only time was 17.794\,ms/window. The batch-size-1 measurements characterize the response time of an individual request.
+
+The inference configurations above used the same model checkpoint. We compared each against the reference implementation at the same batch size. At batch size 64, checking all 1,723 test windows yielded a maximum absolute prediction difference of \(7.63\times10^{-6}\). Batch size 1 passed a sampled check against the reference at the same batch size. Aggregate forecasting metrics were similar across the two batch sizes, although individual predictions were not identical. All main accuracy results were evaluated at batch size 64.
+
+\FloatBarrier
