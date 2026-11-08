@@ -6,7 +6,7 @@
 
 \subsection{Overall Framework}\label{sec:framework}
 
-Figure~\ref{fig:rbsrn-architecture} shows the overall architecture of RBSRN. The framework first generates a base prediction through shared dual-frequency spatiotemporal encoding. The State-Evidence Expert Residual Refinement Module (SERR) organizes correction evidence through self-evolution and directed time-lagged experts. Background-conditioned Cross-region Message Selection (BCMS) selects cross-region historical messages according to source and target traffic backgrounds and the forecast horizon. The two modules read the shared representations in parallel, generate complementary corrections, and combine them additively at the prediction stage:
+Figure~\ref{fig:rbsrn-architecture} summarizes RBSRN. Shared dual-frequency encoding produces a base prediction. SERR then combines self-evolution and directed time-lagged experts, while BCMS selects cross-region historical messages from the source and target backgrounds for each forecast step. The two modules operate in parallel and add their corrections to the base prediction:
 \begin{equation}
 \label{eq:overall-prediction}
 \widetilde{Y}=\widetilde{Y}^{0}+\Delta\widetilde{Y}^{S}+\Delta\widetilde{Y}^{B}.
@@ -16,13 +16,13 @@ Here, \(\widetilde{Y}^{0}\) is the base prediction, and \(\Delta\widetilde{Y}^{S
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{figures/model-architecture.pdf}
-  \caption{\editorialupdated{Overall architecture of RBSRN. (a) Base prediction and parallel residual fusion. (b) SERR expert residual refinement. (c) BCMS background-conditioned historical message selection.}}
+  \caption{RBSRN architecture. (a) Base prediction and parallel residual fusion. (b) SERR. (c) BCMS.}
   \label{fig:rbsrn-architecture}
 \end{figure}
 
 \subsection{Shared Dual-Frequency Spatiotemporal Representations}\label{sec:dual-frequency}
 
-To distinguish smooth changes from short-term fluctuations, RBSRN extracts shared representations through low- and high-frequency branches. We first apply single-level discrete wavelet decomposition and reconstruction along the historical time dimension of each flow channel, producing low- and high-frequency sequences. We standardize both sequences using the channel-wise means and standard deviations of training traffic flow. We then append time-of-day and day-of-week information to obtain \(U_L,U_H\in\mathbb{R}^{T\times N\times4}\). The two branches share the input projection and temporal embeddings. The low-frequency branch applies temporal self-attention and trend graph encoding, whereas the high-frequency branch applies temporal convolution and event graph encoding:
+RBSRN separates smooth changes from short-term fluctuations with low- and high-frequency branches. We apply single-level discrete wavelet decomposition and reconstruction along the historical time dimension of each flow channel, standardize both sequences with the training statistics, and append time-of-day and day-of-week features to obtain \(U_L,U_H\in\mathbb{R}^{T\times N\times4}\). The branches share the input projection and temporal embeddings. The low-frequency branch uses temporal self-attention and trend graph encoding; the high-frequency branch uses temporal convolution and event graph encoding:
 \begin{equation}
 \label{eq:low-frequency}
 Z_L=\mathrm{F}_L(U_L),
@@ -40,7 +40,7 @@ The convolutional prediction head \(\mathrm{R}\) spans the full historical windo
 
 \subsection{State-Evidence Expert Residual Refinement (SERR)}\label{sec:serr}
 
-SERR organizes two complementary experts around node self-evolution and cross-region time-lagged associations, then allocates their correction contributions according to the current state (Figure~\ref{fig:rbsrn-architecture}(b)). To connect the routine-flow reference with recent dynamics, let \(x_{k,i,c}\) denote the raw flow at historical position \(k\), node \(i\), and channel \(c\). The corresponding routine-flow reference estimated from training data is \(b_{k,i,c}\). We define the state evidence as
+SERR separates node self-evolution from cross-region time-lagged associations and allocates their corrections according to the current state (Figure~\ref{fig:rbsrn-architecture}(b)). Let \(x_{k,i,c}\) denote the raw flow at historical position \(k\), node \(i\), and channel \(c\), and let \(b_{k,i,c}\) be its routine-flow reference estimated from training data. We define the state evidence as
 \begin{equation}
 \label{eq:state-evidence}
 \begin{aligned}
@@ -50,7 +50,7 @@ e_{i,c}&=\left[\bar{x}_{T,i,c}-b_{T,i,c},\;x_{T,i,c}-\bar{x}_{T,i,c}\right]^{\ma
 \end{equation}
 The two components of \(e_{i,c}\in\mathbb{R}^{2}\) describe trend deviation and short-term fluctuation at the final historical time step, respectively. The mean uses only observed positions within the current historical window and adjusts its length to the available observations at the window's start.
 
-The self-evolution expert encodes recent trajectories within each individual node. For each flow channel, it concatenates the sum of the shared dual-frequency features with raw flow and feeds the result into a shared gated recurrent unit (GRU). It then maps the final hidden state to a multi-step prediction:
+The self-evolution expert encodes each node's recent trajectory. For each flow channel, it concatenates raw flow with the sum of the shared dual-frequency features, feeds the sequence to a shared gated recurrent unit (GRU), and maps the final hidden state to a multi-step prediction:
 \begin{equation}
 \label{eq:self-expert}
 P^{\mathrm{self}}_{:,i,c}
@@ -59,7 +59,7 @@ P^{\mathrm{self}}_{:,i,c}
 \end{equation}
 Here, \(\Vert\) denotes feature concatenation, and \(\psi_S\) is a two-layer perceptron with tanh activation. The projection \(\mathcal{P}_S\) linearly maps \(d_b\)-dimensional features to predictions over \(H\) steps. This branch further extracts each node's temporal evolution from the shared spatiotemporal representations.
 
-The directed time-lagged expert retrieves historical features from source nodes through the preconstructed and frozen association set \(\mathcal{E}_c\). For an edge \((j,i,\ell)\in\mathcal{E}_c\), \(j\) is the source node, \(i\) is the target node, and \(\ell\) is a historical lag satisfying \(0<\ell<T\). A lag embedding modulates the source high-frequency features, which are then combined with the target state evidence to form supplementary messages:
+The directed time-lagged expert retrieves source-node features through the fixed association set \(\mathcal{E}_c\). For an edge \((j,i,\ell)\in\mathcal{E}_c\), \(j\) is the source, \(i\) the target, and \(\ell\) a historical lag with \(0<\ell<T\). A lag embedding modulates the source high-frequency feature, which is combined with target state evidence to form a message:
 \begin{equation}
 \label{eq:delay-expert}
 \begin{aligned}
@@ -71,7 +71,7 @@ R^{\mathrm{delay}}_{:,i,c}&=\mathcal{P}_D\!\left(\eta_{i,c}
 \end{equation}
 Here, \(W_e\in\mathbb{R}^{d_b\times2}\) projects the evidence, and \(v_\ell\in\mathbb{R}^{d_b}\) is a learnable lag embedding. The message transformation \(\psi_D\) uses a sigmoid linear unit (SiLU) activation without bias, \(a_{ji\ell}^{c}\) is a fixed edge weight, and \(\mathcal{P}_D\) is a multi-step linear output head. Each expert shares its own parameters across nodes and flow channels, while directed time-lagged associations are specified separately for each flow channel.
 
-A state-conditioned gate determines expert contributions from the temporal means of low- and high-frequency features and the state evidence for both flow channels:
+The state-conditioned gate uses temporal means of the low- and high-frequency features and the state evidence for both channels to determine the expert contributions:
 \begin{equation}
 \label{eq:role-gate}
 \Omega_i=\operatorname{Softmax}_{\mathrm{expert}}\!\left(
@@ -90,7 +90,7 @@ Both \(P^{\mathrm{self}}\) and \(R^{\mathrm{delay}}\) use the same standardized 
 
 \subsection{Background-conditioned Cross-region Message Selection (BCMS)}\label{sec:bcms}
 
-BCMS selects historical messages within fixed candidate neighborhoods according to the current background and forecast horizon (Figure~\ref{fig:rbsrn-architecture}(c)). It first maps the temporal mean of low-frequency features to a node background representation and extracts multiscale patterns from high-frequency features:
+BCMS selects historical messages from fixed candidate neighborhoods using the current background and forecast horizon (Figure~\ref{fig:rbsrn-architecture}(c)). It maps the low-frequency temporal mean to a node background representation and extracts multiscale high-frequency patterns:
 \begin{equation}
 \label{eq:bcms-context-pattern}
 \xi_i=\operatorname{LN}\!\left(\mathcal{P}_b(\bar{Z}_{L,i})\right),
@@ -106,7 +106,7 @@ q_i^s&=(1+\gamma_q(\xi_i))\odot Q(z^s_{T,i})+\delta_q(\xi_i),\\
 k_{j,\tau}^s&=(1+\gamma_k(\xi_j))\odot K(z^s_{T-\tau,j})+\delta_k(\xi_j).
 \end{aligned}
 \end{equation}
-The operators \(Q,K\) are learnable affine mappings; \(\gamma\) and \(\delta\) produce \(d\)-dimensional scaling and shifting parameters, respectively~\cite{ref45}. Thus, both source and target low-frequency traffic backgrounds condition the matching of high-frequency patterns.
+The operators \(Q,K\) are learnable affine mappings; \(\gamma\) and \(\delta\) produce \(d\)-dimensional scaling and shifting parameters, respectively~\cite{ref45}. The source and target low-frequency backgrounds therefore condition the matching of high-frequency patterns.
 
 For forecast step \(h\), we define the joint score as
 \begin{equation}
@@ -120,16 +120,16 @@ a_{h,i,j,\tau,s}
 u_{i,j,\tau,s}+e_{\mathrm{lag}}(\tau)+e_{\mathrm{scale}}(r_s)+e_{\mathrm{hor}}(h)\right).
 \end{aligned}
 \end{equation}
-Here, \(A_q,A_k,A_p,A_d\in\mathbb{R}^{d\times d}\) and \(b_a,w_a\in\mathbb{R}^{d}\) are learnable parameters. Each of the three temporal encodings applies a bias-free linear projection to \([v,\sin(2\pi v),\cos(2\pi v)]^{\mathsf T}\). The value \(v\) expresses the corresponding historical lag, temporal span, or forecast horizon in hours. Introducing the forecast-step encoding before nonlinear scoring allows candidate contributions to vary with the forecast horizon.
+Here, \(A_q,A_k,A_p,A_d\in\mathbb{R}^{d\times d}\) and \(b_a,w_a\in\mathbb{R}^{d}\) are learnable parameters. Each temporal encoding applies a bias-free linear projection to \([v,\sin(2\pi v),\cos(2\pi v)]^{\mathsf T}\), where \(v\) is the corresponding lag, temporal span, or forecast horizon in hours. The forecast-step encoding lets candidate contributions vary with the horizon.
 
-To control the overall contribution of historical information, we add a zero-message option with both score and value set to zero at each forecast step. For each actual candidate, joint normalization gives the weight
+We add a zero-message option, with score and value set to zero, to control the total contribution of historical information. For each actual candidate, joint normalization gives the weight
 \begin{equation}
 \label{eq:joint-message-softmax}
 w_{h,i,j,\tau,s}
 =\frac{\exp(a_{h,i,j,\tau,s})}
 {1+\displaystyle\sum_{(j',\tau',s')\in\mathcal{A}_i}\exp(a_{h,i,j',\tau',s'})}.
 \end{equation}
-The denominator's constant 1 corresponds to the zero-message option. Its probability mass allows the model to reduce the total weight assigned to actual historical messages. We project the source high-frequency patterns to values, aggregate them with the selection weights, and generate corrections for both flow channels:
+The denominator's constant 1 is the zero-message option, whose probability mass reduces the total weight assigned to actual messages. We project source high-frequency patterns to values, aggregate them with the selection weights, and generate corrections for both channels:
 \begin{equation}
 \label{eq:bcms-residual}
 \begin{aligned}
@@ -142,11 +142,11 @@ Both \(W_v\in\mathbb{R}^{d\times d}\) and \(W_o\in\mathbb{R}^{2\times d}\) are b
 
 \subsection{Joint Forecasting Output}\label{sec:joint-output}
 
-We add both corrections to the base prediction according to Eq.~\eqref{eq:overall-prediction}. We then restore the original traffic flow scale using fixed channel-wise statistics estimated from training input windows:
+We add both corrections to the base prediction using Eq.~\eqref{eq:overall-prediction} and restore the original flow scale with fixed channel-wise statistics from training input windows:
 \begin{equation}
 \label{eq:inverse-scaling}
 \widehat{Y}_{t+h,i,c}
 =\sigma_c\left(\widetilde{Y}^{0}_{h,i,c}
 +\Delta\widetilde{Y}^{S}_{h,i,c}+\Delta\widetilde{Y}^{B}_{h,i,c}\right)+\mu_c.
 \end{equation}
-Here, \(\mu_c\) and \(\sigma_c\) denote the mean and standard deviation of channel \(c\), respectively. We initialize both global correction-strength parameters, \(\alpha\) and \(\beta\), to zero, so the initial output equals the base prediction. We also zero-initialize the final SERR gating layer, giving both experts an initial weight of 0.5. The model then learns the contributions of the two complementary correction pathways under a joint inflow and outflow forecasting objective.
+Here, \(\mu_c\) and \(\sigma_c\) are the mean and standard deviation of channel \(c\). We initialize \(\alpha\) and \(\beta\) to zero, so the initial output equals the base prediction. We also zero-initialize the final SERR gating layer, giving both experts an initial weight of 0.5. Training then learns the two correction pathways jointly for inflow and outflow.

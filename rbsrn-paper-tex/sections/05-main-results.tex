@@ -3,15 +3,15 @@
 % !TeX spellcheck = none
 \subsection{Main Experimental Results}\label{sec:exp-main-results}
 
-This section evaluates RBSRN in terms of overall prediction accuracy, spatial distributions, deviations from routine patterns, and the effects of residual corrections. Comparisons across the full test set and fixed-model diagnostics examine how the two types of correction evidence perform under different traffic conditions.
+This section evaluates overall accuracy, spatial prediction, performance across deviation levels, and the effects of the two residual pathways. The first two analyses use the full test set; the latter analyses use fixed-model diagnostics to relate correction benefits to traffic conditions.
 
 \subsubsection{Overall Prediction Performance}\label{sec:results-overall}
 
-Tables~\ref{tab:chengdu-inflow}--\ref{tab:shanghai-outflow} compare RBSRN with 13 baseline methods on inflow and outflow forecasting in Chengdu and Shanghai, using positive-target evaluation. Relative changes were calculated from unrounded values against the strongest baseline method for each task and metric. \editorialupdated{Bold and underlined values indicate the best and second-best results in each column, respectively.}
+Tables~\ref{tab:chengdu-inflow}--\ref{tab:shanghai-outflow} compare RBSRN with 13 baselines on Chengdu and Shanghai inflow and outflow under positive-target evaluation. Relative changes use unrounded values and the strongest baseline for each task and metric. Bold and underlined values mark the best and second-best results in each column.
 
-\shanghaiupdated{RBSRN achieved the lowest AVG12 MAE and RMSE on all four tasks. For Chengdu inflow, Chengdu outflow, Shanghai inflow, and Shanghai outflow, AVG12 MAE decreased by 2.00\%, 0.46\%, 1.18\%, and 0.43\% relative to each task's strongest baseline method. AVG12 RMSE decreased by 5.01\%, 1.50\%, 2.33\%, and 0.06\%, respectively, with STGCN, STGCN, HyperD, and HyperD as the corresponding strongest baseline methods.}
+RBSRN achieved the lowest AVG12 MAE and RMSE on all four tasks. For Chengdu inflow, Chengdu outflow, Shanghai inflow, and Shanghai outflow, AVG12 MAE decreased by 2.00\%, 0.46\%, 1.18\%, and 0.43\%, respectively, relative to the strongest baseline. The corresponding RMSE reductions were 5.01\%, 1.50\%, 2.33\%, and 0.06\%; the strongest baselines were STGCN, STGCN, HyperD, and HyperD.
 
-Across forecast horizons, RBSRN achieved the lowest MAE and RMSE at H3, H6, and H12 for inflow forecasting in both cities. \shanghaiupdated{For outflow forecasting, HyperD achieved the best H12 MAE in both cities and the best H12 RMSE in Shanghai. RBSRN achieved the lowest errors in all remaining reported comparisons.}
+Across horizons, RBSRN achieved the lowest MAE and RMSE at H3, H6, and H12 for inflow in both cities. For outflow, HyperD achieved the best H12 MAE in both cities and the best H12 RMSE in Shanghai; RBSRN was best in the remaining reported comparisons.
 
 \input{tables/chengdu-inflow}
 \input{tables/chengdu-outflow}
@@ -27,24 +27,24 @@ The proportion of zero targets is calculated over the same test evaluation posit
 The denominator counts the evaluation positions across all actual test windows, 12 forecast steps, and 1,024 grid cells. When the same timestamp appears in multiple forecast windows, each corresponding forecasting task is counted separately. Table~\ref{tab:metric-scope-sensitivity} reports the zero-target proportions and results under both evaluation scopes for each city and channel.
 
 \input{tables/metric-scope-sensitivity}
-Table~\ref{tab:metric-scope-sensitivity} compares AVG12 results under positive-target and all-grid evaluation using the same RBSRN checkpoint as the main tables for each city. Zero targets accounted for 64.17\%--71.68\% of evaluation positions across the four tasks. Including these positions increased MAE and decreased RMSE in every task, showing that evaluation scope affects the two metrics differently. Baseline rankings in the main results use positive-target evaluation.
+Table~\ref{tab:metric-scope-sensitivity} compares AVG12 results under positive-target and all-grid evaluation using the same RBSRN checkpoint as the main tables. Zero targets accounted for 64.17\%--71.68\% of evaluation positions. Including them increased MAE and decreased RMSE in every task, so metric values depend on the evaluation scope. Baseline rankings in the main tables refer to positive-target evaluation; the all-grid results are reported for RBSRN only.
 
 \subsubsection{Spatial Prediction Performance}\label{sec:results-spatial}
 
-\metricrevised{To assess how well RBSRN locates high-flow grid cells, we evaluated predictions 30 minutes after the forecast origin (H6). The analysis covered 1,723 test windows in Chengdu and 1,781 in Shanghai. For each window, we calculated MAE, Spearman rank correlation, and hotspot intersection over union (IoU) over all 1,024 grid cells. Each metric was then averaged over the windows for which it was defined. Inflow and outflow were evaluated separately, and total flow was their cellwise sum. MAE used continuous predictions after inverse standardization, measured in counts per 5 min. Rank correlation assigned average ranks to ties; windows with constant observed flow contributed only to MAE and IoU.}
+To assess spatial localization, we evaluated predictions 30 minutes after the forecast origin (H6). The analysis covered 1,723 Chengdu windows and 1,781 Shanghai windows. For each window, we computed MAE, Spearman rank correlation, and hotspot intersection over union (IoU) over all 1,024 grid cells, then averaged each metric over defined windows. Inflow, outflow, and their cellwise sum were evaluated separately. MAE used inverse-standardized predictions in counts per 5 min; rank correlation used average ranks for ties, and constant-observation windows contributed only to MAE and IoU.
 
-\metricrevised{Hotspots were defined separately for predicted and observed maps as positive-flow cells within the top \(q\) fraction of the flow ranking. The threshold was the \(\lceil qN\rceil\)-th largest flow value, and all positive values tied at that threshold were included. IoU was the size of the hotspot intersection divided by the size of the union; it was undefined when the union was empty.}
+For each map, hotspots were positive-flow cells within the top \(q\) fraction of the flow ranking. The threshold was the \(\lceil qN\rceil\)-th largest flow value, and positive values tied at the threshold were included. IoU was the intersection divided by the union and was undefined for an empty union.
 
 \input{tables/spatial-fulltest-h6}
 
-\metricrevised{Table~\ref{tab:spatial-fulltest-h6} reports mean spatial rank correlations for total flow of 0.5324 in Chengdu and \shanghaiupdated{0.5543} in Shanghai. At the top 10\% threshold, cells identified as hotspots in both maps accounted for 41.55\% and \shanghaiupdated{40.68\%} of their union on average, respectively. For inflow or outflow evaluated separately, this proportion was \shanghaiupdated{32.24\%--35.47\%}. Tightening the threshold to the top 5\% left the mean total-flow IoU at approximately 0.41 in both cities. Variation between windows at the same horizon was larger. The interquartile ranges of H6 total-flow IoU$_{10\%}$ were 0.270--0.537 in Chengdu and \shanghaiupdated{0.331--0.519} in Shanghai. By comparison, the ranges of mean values over H1--H12 were 0.4122--0.4174 and \shanghaiupdated{0.4048--0.4087}, respectively.}
+Table~\ref{tab:spatial-fulltest-h6} reports mean total-flow rank correlations of 0.5324 in Chengdu and 0.5543 in Shanghai. At the top-10\% threshold, the mean hotspot IoU was 0.4155 and 0.4068, respectively; separate inflow and outflow IoU values ranged from 0.3224 to 0.3547. At the top-5\% threshold, mean total-flow IoU remained close to 0.41 in both cities. Window-to-window variation at H6 was larger than the variation in means across H1--H12: the H6 interquartile ranges were 0.270--0.537 in Chengdu and 0.331--0.519 in Shanghai, compared with mean ranges of 0.4122--0.4174 and 0.4048--0.4087.
 
-\metricrevised{Figure~\ref{fig:rbsrn-spatial-h6} shows the spatial distribution of total flow at 08:00 on each city's first complete H6 target day. The Shanghai example had a hotspot IoU of \shanghaiupdated{0.4718}. Its predicted maximum flow was \shanghaiupdated{23.02} counts per 5 min, exceeding the observed maximum of 18 counts per 5 min. In this window, predicted and observed hotspots partially overlapped, but the model overestimated the observed peak flow.}
+Figure~\ref{fig:rbsrn-spatial-h6} shows total flow at 08:00 on each city's first complete H6 target day. In the Shanghai example, hotspot IoU was 0.4718. The predicted maximum was 23.02 counts per 5 min versus 18 observed counts per 5 min, indicating an overestimated peak while the predicted and observed hotspots still partially overlapped.
 
 \begin{figure}[!htbp]
   \centering
   \includegraphics[width=\linewidth]{figures/spatial-fixed-morning.pdf}
-  \caption{Example spatial predictions of total flow at H6 (08:00). The top and bottom rows show Chengdu and Shanghai, respectively. The columns show observations, predictions, and absolute errors.}
+\caption{Total-flow predictions at H6 (08:00). Rows: Chengdu and Shanghai. Columns: observation, prediction, and absolute error.}
   \label{fig:rbsrn-spatial-h6}
 \end{figure}
 \FloatBarrier

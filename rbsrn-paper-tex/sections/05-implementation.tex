@@ -1,6 +1,6 @@
 \textbf{}% !TeX root = ../main.tex
 \subsubsection{Implementation and Computing Environment}\label{sec:exp-implementation}
 
-\hpupdated{Model experiments used a single NVIDIA A100-SXM4-40GB GPU. Table~\ref{tab:hyperparameter-implementation} summarizes the hardware, software, and training settings for the hyperparameter experiments. All configurations in the hyperparameter sweep used the same data split, with a maximum of 200 training epochs and an early-stopping patience of 20 epochs. We selected the checkpoint with the lowest joint validation MAE and reported both MAE and RMSE at that checkpoint.}
+Model experiments used a single NVIDIA A100-SXM4-40GB GPU. Table~\ref{tab:hyperparameter-implementation} lists the hardware, software, and training settings. All configurations used the same data split, a maximum of 200 epochs, and an early-stopping patience of 20 epochs. We selected the checkpoint with the lowest joint validation MAE and reported MAE and RMSE at that checkpoint.
 
 \input{tables/hyperparameter-implementation}

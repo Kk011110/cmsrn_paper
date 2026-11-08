@@ -7,9 +7,9 @@
 
 \subsubsection{Datasets, Preprocessing, and Forecasting Protocol}\label{sec:exp-datasets}
 
-We conducted regional traffic flow forecasting experiments on two datasets from Chengdu and Shanghai. These datasets contain Chengdu DiDi ride-hailing orders collected in November 2016 and Shanghai taxi origin--destination (OD) records collected in August 2016, respectively. We selected a fixed core area in each city and divided it into a regular \(32\times32\) grid. Inflow and outflow are measured as counts per 5 min. Each destination contributes to the inflow of its grid cell at arrival time, and each origin contributes to outflow at departure time. The two endpoint types were aggregated independently. Table~\ref{tab:dataset-summary} summarizes dataset properties and sample counts. Figures~\ref{fig:chengdu-t5-dataset} and~\ref{fig:shanghai-t5-dataset} show the endpoint distributions, grid partitions, and mean flow distributions for the two cities.
+We evaluated regional traffic flow forecasting on two datasets: Chengdu DiDi ride-hailing orders collected in November 2016 and Shanghai taxi origin--destination (OD) records collected in August 2016. For each city, we selected a fixed core area and divided it into a \(32\times32\) grid. Inflow and outflow are counts per 5 min, aggregated independently from trip destinations and origins, respectively. Table~\ref{tab:dataset-summary} summarizes the datasets, and Figures~\ref{fig:chengdu-t5-dataset} and~\ref{fig:shanghai-t5-dataset} show their endpoint distributions, grid partitions, and mean flows.
 
-Both cities followed the same order-cleaning and flow-aggregation procedure, with all timestamps expressed in Beijing time (UTC+8). We first removed exact duplicates and records with invalid timestamps or coordinates. Retained orders must last 2--120 minutes, have both endpoints within the city's coarse geographic boundary, and have an average speed no greater than \(120\,\mathrm{km/h}\). Average speed is calculated from the great-circle distance between endpoints and the trip duration. Endpoints within the core area and observation period were then aggregated into their grid cells and time intervals. Locations with valid source quality and no endpoint events were assigned zero. In Shanghai, source quality was flagged as invalid for 2016-08-11 to 2016-08-14. Records from this period were retained in the forecasting data and in the statistics used to standardize training inputs.
+Both datasets used the same cleaning and aggregation procedure, with timestamps converted to Beijing time (UTC+8). We removed exact duplicates and records with invalid timestamps or coordinates. Retained orders lasted 2--120 minutes, had both endpoints within the city's coarse geographic boundary, and had an average speed no greater than \(120\,\mathrm{km/h}\), computed from great-circle distance and trip duration. Valid endpoints in the core area were aggregated into grid cells and time intervals; cells with no endpoint events were assigned zero. Shanghai source quality was flagged as invalid from 2016-08-11 to 2016-08-14. We retained these records in the flow series and in the training-input statistics, while applying the quality mask when computing source-quality summaries and scenario references.
 
 \begin{table}[!htbp]
 	\centering
@@ -33,31 +33,31 @@ Both cities followed the same order-cleaning and flow-aggregation procedure, wit
 	\end{tabular}
 \end{table}
 
-For each dataset, we generated sliding windows with a stride of 1 step (5 minutes). Each window uses the past 12 observations to jointly predict inflow and outflow over the next 12 steps, covering 60 minutes of history and 60 minutes of forecasts. We retained the time-of-day and day-of-week information associated with each historical window. Only windows with complete historical inputs and forecast targets were included. We split these windows chronologically by forecast origin into training, validation, and test sets at an approximate ratio of 6:2:2. Table~\ref{tab:dataset-summary} lists the window counts for each split. Splitting occurred after window generation, and no windows were removed at split boundaries. Both the training--validation and validation--test boundaries therefore shared 11 historical time steps and 11 forecast-target time steps. All methods used the same split indices and forecasting task.
+For each dataset, we generated stride-1 rolling-origin windows. Each window uses the past 12 observations to predict inflow and outflow over the next 12 steps, covering 60 minutes of history and forecasts. We retained the associated time-of-day and day-of-week features and kept only windows with complete inputs and targets. The resulting windows were ordered by forecast origin and divided chronologically into training, validation, and test sets at an approximate ratio of 6:2:2 (Table~\ref{tab:dataset-summary}). This rolling-origin protocol preserves temporal order while allowing each forecast origin to use the immediately preceding observations as history. All methods used the same ordered indices and forecasting task.
 
-Standardization means and standard deviations were computed separately for each flow channel from the historical inputs of training windows and fixed for validation and testing. Predictions were restored to the original flow scale by channel-wise inverse standardization. Section~\ref{sec:exp-implementation} describes model input processing and validation-based checkpoint selection. Section~\ref{sec:exp-baselines-metrics} defines the evaluation metrics and their aggregation.
+For each flow channel, standardization means and standard deviations were computed from the historical inputs of training windows and fixed for validation and testing. Predictions were returned to the original flow scale by channel-wise inverse standardization. Section~\ref{sec:exp-implementation} describes checkpoint selection, and Section~\ref{sec:exp-baselines-metrics} defines the evaluation metrics.
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=\linewidth]{figures/chengdu-t5-overview.png}
-	\caption{Endpoint distribution, grid partition, and mean flow distribution of the Chengdu dataset. Mean flows were calculated only over 5-minute intervals with valid source quality.}
+\caption{Chengdu endpoint distribution, grid partition, and mean flow.}
 	\label{fig:chengdu-t5-dataset}
 \end{figure}
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=\linewidth]{figures/shanghai-t5-overview.png}
-	\caption{Endpoint distribution, grid partition, and mean flow distribution of the Shanghai dataset. Mean flows were calculated only over 5-minute intervals with valid source quality.}
+\caption{Shanghai endpoint distribution, grid partition, and mean flow.}
 	\label{fig:shanghai-t5-dataset}
 \end{figure}
 
 \subsubsection{Baseline Methods and Evaluation Metrics}\label{sec:exp-baselines-metrics}
 
-The main experiments compared RBSRN with 13 baseline methods spanning three forecasting paradigms. Conventional methods include historical average (HA) and support vector regression (SVR). Deep learning models for traffic forecasting include DCRNN~\cite{ref01}, STGCN~\cite{ref02}, Graph WaveNet (GWNet)~\cite{ref03}, DSTAGNN~\cite{ref19}, PDFormer~\cite{ref10}, STDN~\cite{ref20}, MetaDG~\cite{ref21}, HyperD~\cite{ref22}, and RAST~\cite{ref23}. These models cover graph structure learning, dynamic spatiotemporal dependencies, sequence decomposition, and retrieval of historical information. General time-series models include PatchTST~\cite{ref12} and TimeMixer~\cite{ref13}. All methods followed the fixed chronological split and 12-step forecasting task in Section~\ref{sec:exp-datasets}. Inflow and outflow were evaluated separately on Chengdu and Shanghai.
+The main experiments compared RBSRN with 13 baselines from three forecasting paradigms. Conventional methods were historical average (HA) and support vector regression (SVR). Deep models were DCRNN~\cite{ref01}, STGCN~\cite{ref02}, Graph WaveNet (GWNet)~\cite{ref03}, DSTAGNN~\cite{ref19}, PDFormer~\cite{ref10}, STDN~\cite{ref20}, MetaDG~\cite{ref21}, HyperD~\cite{ref22}, and RAST~\cite{ref23}; general time-series models were PatchTST~\cite{ref12} and TimeMixer~\cite{ref13}. Every method used the chronological split and 12-step task defined above. Inflow and outflow were evaluated separately in each city.
 
-\metricrevised{The scenario analysis of deviations from routine patterns additionally included vector autoregression (VAR), STNorm~\cite{ref24}, and STWave~\cite{ref11}, bringing the comparison to 16 baseline methods.}
+The scenario analysis additionally included vector autoregression (VAR), STNorm~\cite{ref24}, and STWave~\cite{ref11}, for 16 baselines in total.
 
-We use mean absolute error (MAE) and root mean squared error (RMSE), both computed on the original flow scale after inverse standardization. The main results tables use a positive-target mask, evaluating locations where the observed flow is greater than zero. The evaluation-scope sensitivity analysis used an all-grid evaluation of test predictions from the same model checkpoint, including locations with zero targets. Let \(\mathcal{T}_{\mathrm{test}}\) denote the set of forecast origins for the actual test windows. Let \(y_{t,h,i,c}\) and \(\widehat y_{t,h,i,c}\) denote the observed and predicted values for forecast origin \(t\), forecast step \(h\), grid cell \(i\), and flow channel \(c\in\{\mathrm{in},\mathrm{out}\}\), respectively. The prediction error is \(e_{t,h,i,c}=\widehat y_{t,h,i,c}-y_{t,h,i,c}\). The two evaluation scopes are defined as
+We use mean absolute error (MAE) and root mean squared error (RMSE), computed on the original flow scale after inverse standardization. The main tables use a positive-target mask and evaluate locations with observed flow greater than zero. The scope-sensitivity analysis applies the same RBSRN checkpoint to all grid cells, including zero targets; it characterizes metric sensitivity rather than reranking baselines. Let \(\mathcal{T}_{\mathrm{test}}\) denote the forecast origins of the actual test windows. Let \(y_{t,h,i,c}\) and \(\widehat y_{t,h,i,c}\) denote the observed and predicted values for forecast origin \(t\), forecast step \(h\), grid cell \(i\), and channel \(c\in\{\mathrm{in},\mathrm{out}\}\). The prediction error is \(e_{t,h,i,c}=\widehat y_{t,h,i,c}-y_{t,h,i,c}\). The two evaluation scopes are
 \[
 \begin{aligned}
 	\Omega^{+}_{h,c}&=\bigl\{(t,i)\mid t\in\mathcal{T}_{\mathrm{test}},\ 1\leq i\leq N,\ y_{t,h,i,c}>0\bigr\},\\
@@ -86,7 +86,7 @@ We report the single-step results H3, H6, and H12, corresponding to forecast ste
 	=\frac{1}{12}\sum_{h=1}^{12}\mathcal{M}^{m}_{h,c},
 	\qquad\mathcal{M}\in\{\mathrm{MAE},\mathrm{RMSE}\}.
 \end{equation}
-\metricrevised{For AVG12 RMSE, we first compute RMSE at each forecast step and then average these values across steps.}
+For AVG12 RMSE, we compute RMSE at each forecast step and then average those 12 values.
 
 \FloatBarrier
 
